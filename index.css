@@ -1614,8 +1614,14 @@ body {
 }
 
 #clock {
-    font: 20px Tahoma,"DejaVu Sans",sans-serif; padding: 4px 9px; border: 1px solid;
+    font: 18px Tahoma,"DejaVu Sans",sans-serif; padding: 4px 9px; border: 1px solid;
     border-color: #888 #eee #eee #888; color: #222;
+    width: 92px;
+    flex: 0 0 92px;
+    text-align: center;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    
 }
 
 #desktop .window>.titlebar {
