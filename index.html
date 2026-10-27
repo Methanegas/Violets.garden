@@ -97,6 +97,8 @@
             <p>
                 I also love playing video games! Some of my current favorites are Warframe, Deadlock, Minecraft, and Plants vs. Zombies, Subnatica, Factorio, and the Resident Evil series.
             </p>
+            <p>
+            </p>
         </div>
     </div>
     <div
@@ -425,23 +427,6 @@ web-synth/
 uav/
 electronics/
 `,
-    about:
-`Hello!!!
-
-I'm Violet. I’m an engineering student based in New Jersey with a passion for understanding how things work and bringing my stupid ideas to life. Whether it's building stupid robots, experimenting with embedded systems, developing the most poorly programmed software, or exploring the technology of the past, I love learning, tinkering, and creating things!
-
-I know a handful of programming languages like C++ (my love ), Python, HTML/CSS, Lua, and some Rust.
-
-Outside of engineering, I'm a “musician”, music enthusiast, and photographer. I play a wide variety of instruments: banjo, mandolin, guitar, flute, keyboard, and I'm currently learning the viola. I enjoy listening to and producing music, particularly indie folk and folktronica, but I appreciate and love every genre.
-
-I'm also fascinated by entomology and the natural world, especially the little things happening all around us that often go unnoticed.
-
-Some of my favorite artists are Yealoker, Cosmo Sheldrake, Sparkbird, and The Crain Wives, Fish in a Birdcage, alt-J, Message to Bears, Will Wood, Cavetown, and Pierce the Veil.
-
-I also love playing video games! Some of my current favorites are Warframe, Deadlock, Minecraft, and Plants vs. Zombies, Subnatica, Factorio, and the Resident Evil series.
-
-I'm always looking for something new to explore, something old to rediscover, and new people to talk to. I love taking things apart, figuring out how they work, and documenting the world around me along the way.
-`,
     whoami:
 `guest
 `,
@@ -449,33 +434,34 @@ I'm always looking for something new to explore, something old to rediscover, an
 `GloobOS gloob 1.0.0 x86_64 GNU/Linux
 `,
     neofetch:String.raw`
-                             ++                             
-                           +----+                           
-                          +------+                          
-                 --      +--------+     --                  
-                -----    +++++-++++   -----               
-             +------++ ++++++++++++ ++------+              
-             +-----++++++++++++++++++++-----+               
-              ++++++++++++++++++++++++++++++               
-               ++++++++###########+++++++++                
-         +----++++++++##############++++++++----+         
-         ------++++###################+++++------          
-          ----++++#####################+++++----           
-           ++++++++####################++++++++            
-             #++++######################++++#              
-                +########################+                 
-                      #####    #####                       
+
+                          :=:
+                        :+++++:
+                       :++++++=:
+             ::::.    -+==+++==+-    .::::
+            .+++++=-..:---===---:..==+++++.
+            .=++++===-------------===+++++.
+            .-=====----:::::::::----=====-
+             .-------::::::::::::--------.
+        =++++==---:::::::::::::::::::---==++++-
+        :+++++=--:::::::::::::::::::::--=+++++:
+         .====---:::::::::::::::::::::---====.
+           .----:::::::::::::::::::::::----.
+             .::::::::::::::::::::::::::.
+                 .....................
+                     
 guest@Violet
 --------------
 OS: GloobOS x86_64
-Host: Nelumbo Labs
+Host: Nelumbo Labs Lotusbook 14 Mobile Workstation PC
 Kernel: 4.2.0-gloob
 Shell: bash
 DE: tux-Desktop
 Terminal: gloob-term
-CPU: 11th Gen Intel(R) Core(TM) i7-1185G7 (8) @ 4.80 GHz
-GPU 1: NVIDIA Quadro T500 Mobile [Discrete]
-Memory: 4.37 GiB / 31.03 GiB (14%)
+CPU: Nelumbo N12 (12) @ 4.80 GHz
+GPU 1: Gloob GX 780 [Discrete]
+Memory: 6.42 GiB / 31.88 GiB (20%)
+
 `,
     sudo:
 `guest is not in the sudoers file.
@@ -1025,8 +1011,107 @@ function openTerminal(){
 }
 function appendTerminal(text){
     $("terminalOutput")
-        .textContent +=
-        text;
+        .insertAdjacentText(
+            "beforeend",
+            text
+        );
+}
+function appendNeofetch(){
+    const lines =
+        terminalCommands.neofetch
+        .replace(/^\n/, "")
+        .replace(/\s+$/, "")
+        .split("\n");
+    const infoStart =
+        lines.indexOf("guest@Violet");
+    const logoLines =
+        lines.slice(0, infoStart);
+    const logoIndent =
+        Math.min(
+            ...logoLines
+            .filter(line => line.trim())
+            .map(line => line.match(/^\s*/)[0].length)
+        );
+    const trimmedLogoLines =
+        logoLines
+        .map(line => line.slice(logoIndent).trimEnd());
+    const logo =
+        document.createElement("pre");
+    const info =
+        document.createElement("div");
+    const block =
+        document.createElement("div");
+    const logoColumns =
+        Math.max(...trimmedLogoLines.map(line => line.length));
+
+    logo.className = "neofetchLogo";
+    logo.style.setProperty(
+        "--logo-columns",
+        logoColumns
+    );
+    trimmedLogoLines.forEach((line, row) => {
+        Array.from(line).forEach((character, column) => {
+            const cell =
+                document.createElement("span");
+            cell.textContent =
+                character === " " ? "\u00a0" : character;
+            cell.style.gridArea =
+                `${row + 1} / ${column + 1}`;
+            logo.append(cell);
+        });
+    });
+    info.className = "neofetchInfo";
+    const infoLines =
+        lines.slice(infoStart);
+    const labelWidth =
+        Math.max(
+            ...infoLines
+            .slice(2)
+            .filter(line => line.trim())
+            .map(line => line.indexOf(":") + 1)
+        );
+    info.style.setProperty(
+        "--neofetch-label-width",
+        `${labelWidth}ch`
+    );
+    const user =
+        document.createElement("div");
+    user.className = "neofetchUser";
+    user.textContent = infoLines[0];
+    info.append(user);
+    infoLines.slice(2).forEach(line => {
+        if (!line.trim()) return;
+        const divider =
+            line.indexOf(":");
+        const row =
+            document.createElement("div");
+        row.className = "neofetchRow";
+        const label =
+            document.createElement("span");
+        label.className = "neofetchLabel";
+        label.textContent =
+            line.slice(0, divider + 1);
+        row.append(
+            label,
+            document.createTextNode(line.slice(divider + 1))
+        );
+        info.append(row);
+    });
+    const palette =
+        document.createElement("div");
+    palette.className = "neofetchPalette";
+    for (let index = 0; index < 8; index += 1) {
+        const swatch =
+            document.createElement("span");
+        palette.append(swatch);
+    }
+    info.append(palette);
+    block.className = "neofetch";
+    block.append(logo, info);
+    $("terminalOutput").append(
+        block,
+        document.createTextNode("\n")
+    );
 }
 function executeCommand(command){
     const args =
@@ -1060,6 +1145,14 @@ function executeCommand(command){
             .toString() +
             "\n\n"
         );
+        return
+    }
+    if(cmd === "neofetch"){
+        appendNeofetch();
+        return
+    }
+    if(cmd === "about"){
+        openWindow("aboutWindow");
         return
     }
     if(
