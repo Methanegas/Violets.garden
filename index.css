@@ -929,19 +929,63 @@ body {
 
 .terminal {
     background: #070907; height: 100%; color: #b7d8b7; padding: 12px; overflow: auto;
-    font-size: 14px; user-select: text;
+    font-size: 16px; user-select: text;
 }
 
 #terminalOutput {
     white-space: pre-wrap;
 }
 
+.neofetch {
+    display: flex; align-items: center; gap: 12px; width: max-content; min-width: 100%;
+    font-size: 16px; line-height: 1.25;
+}
+
+.neofetchLogo {
+    display: grid; grid-template-columns: repeat(var(--logo-columns), 1ch); grid-auto-rows: 1em;
+    margin: 0; font: inherit; color: var(--retro-purple);
+}
+
+.neofetchLogo span {
+    width: 1ch; height: 1em; white-space: pre;
+}
+
+.neofetchInfo {
+    min-width: max-content; white-space: pre;
+}
+
+.neofetchUser {
+    width: max-content; margin-bottom: .25em; padding-bottom: .15em; border-bottom: 1px solid var(--retro-purple);
+    color: var(--retro-purple);
+}
+
+.neofetchLabel {
+    color: var(--cde-purple);
+}
+
+.neofetchPalette {
+    display: flex; width: max-content; height: .75em; margin-top: .5em;
+}
+
+.neofetchPalette span {
+    width: 1.5em;
+}
+
+.neofetchPalette span:nth-child(1) { background: var(--retro-ink); }
+.neofetchPalette span:nth-child(2) { background: var(--retro-purple); }
+.neofetchPalette span:nth-child(3) { background: var(--cde-purple); }
+.neofetchPalette span:nth-child(4) { background: var(--cde-slate); }
+.neofetchPalette span:nth-child(5) { background: var(--cde-face); }
+.neofetchPalette span:nth-child(6) { background: var(--cde-light); }
+.neofetchPalette span:nth-child(7) { background: var(--retro-shadow); }
+.neofetchPalette span:nth-child(8) { background: var(--retro-light); }
+
 .inputLine {
     display: flex;
 }
 
 .prompt {
-    color: #72ce79; white-space: pre;
+    color: var(--retro-purple); white-space: pre;
 }
 
 #terminalInput {
@@ -1621,7 +1665,6 @@ body {
     text-align: center;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
-    
 }
 
 #desktop .window>.titlebar {
