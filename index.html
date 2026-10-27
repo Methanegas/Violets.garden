@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gloob OS</title>
+<link rel="stylesheet" href="index.css">
+
+
+</head>
+<body>
+<div id="boot">
+    <div id="logoScreen">
+        <div class="logo">
+            <div class="lotusPetal petalLeft2"></div>
+            <div class="lotusPetal petalRight2"></div>
+            <div class="lotusPetal petalLeft1"></div>
+            <div class="lotusPetal petalRight1"></div>
+            <div class="lotusPetal petalCenter"></div>
+        </div>
+        <div class="logoText">
+            Nelumbo Labs
+        </div>
+        <div class="logoSub">
+            Research And Development
+        </div>
+    </div>
+    <div id="terminalBoot"></div>
+    <div id="skip">
+        [ ESC ] SKIP BOOT
+    </div>
+</div>
+<div id="desktop">
+    <div id="panel">
+        <div
+            class="panelItem"
+            data-action="start">
+            Applications
+        </div>
+        <div class="panelItem">
+            Places
+        </div>
+        <button class="panelItem" id="systemSettings" type="button" aria-expanded="false" aria-controls="windowEffectsMenu">System</button>
+        <div id="clock"></div>
+    </div>
+    <div id="windowEffectsMenu" hidden><label><input id="windowEffectsToggle" type="checkbox" checked> Window effects</label><small id="windowEffectsNote"></small></div>
+    <div id="desktopIcons"></div>
+    <div
+        class="window"
+        id="projectsWindow">
+        <div class="titlebar">
+            <span class="windowTitle">
+                projects - File Manager
+            </span>
+            <span class="windowButton">
+                ×
+            </span>
+        </div>
+        <div class="windowContent">
+            <div class="fileToolbar">
+                /home/guest/projects
+            </div>
+            <div
+                class="files"
+                id="projectFiles">
+            </div>
+        </div>
+    </div>
+    <div
+        class="window"
+        id="aboutWindow">
+        <div class="titlebar">
+            <span class="windowTitle">
+                about.txt
+            </span>
+            <span class="windowButton">
+                ×
+            </span>
+        </div>
+        <div class="windowContent about">
+            <h1>Hello!!!</h1>
+            <p>
+                Hello! I'm Violet. I’m an engineering student based in New Jersey with a passion for understanding how things work and bringing my stupid ideas to life. Whether it's building stupid robots, experimenting with embedded systems, developing the most poorly programmed software, or exploring the technology of the past, I love learning, tinkering, and creating things!
+            </p>
+            <p>
+                I know a handful of programming languages like C++ (my love ), Python, HTML/CSS, Lua, and some Rust.
+            </p>
+            <p>
+                Outside of engineering, I'm a “musician”, music enthusiast, and photographer. I play a wide variety of instruments: banjo, mandolin, guitar, flute, keyboard, and I'm currently learning the viola. I enjoy listening to and producing music, particularly indie folk and folktronica, but I appreciate and love every genre.
+            </p>
+            <p>
+                I'm also fascinated by entomology and the natural world, especially the little things happening all around us that often go unnoticed.
+            </p>
+            <p>
+                Some of my favorite artists are Yealoker, Cosmo Sheldrake, Sparkbird, and The Crain Wives, Fish in a Birdcage, alt-J, Message to Bears, Will Wood, Cavetown, Peirce the Veil, 
+            </p>
+            <p>
+                I also love playing video games! Some of my current favorites are Warframe, Deadlock, Minecraft, and Plants vs. Zombies, Subnatica, Factorio, and the Resident Evil series.
+            </p>
+            <p>
+                I'm always looking for something new to explore, something old to rediscover, and new people to talk to. I love taking things apart, figuring out how they work, and documenting the world around me along the way.
+            </p>
+        </div>
+    </div>
+    <div
+        class="window"
+        id="terminalWindow">
+        <div class="titlebar">
+            <span class="windowTitle">
+                guest@Violet: ~
+            </span>
+            <span class="windowButton">
+                ×
+            </span>
+        </div>
+        <div
+            class="windowContent terminal"
+            id="terminalArea">
+            <div id="terminalOutput">GloobOS Terminal
+Type "help" for available commands.
+</div>
+            <div class="inputLine">
+                <span class="prompt">guest@Violet:~$ </span>
+                <input
+                    id="terminalInput"
+                    autocomplete="off"
+                    spellcheck="false">
+            </div>
+        </div>
+    </div>
+    <div
+        class="window"
+        id="projectWindow">
+        <div class="titlebar">
+            <span
+                class="windowTitle"
+                id="projectWindowTitle">
+                Project
+            </span>
+            <span class="windowButton">
+                ×
+            </span>
+        </div>
+        <div
+            class="windowContent projectView"
+            id="projectContent">
+        </div>
+    </div>
+        <div
+        class="window"
+        id="musicWindow">
+        <div class="titlebar">
+            <span class="windowTitle">
+                Music - File Manager
+            </span>
+            <span class="windowButton">
+                ×
+            </span>
+        </div>
+        <div class="windowContent">
+            <div class="fileToolbar">
+                /home/guest/music
+            </div>
+            <div
+                class="files"
+                id="musicFiles">
+            </div>
+        </div>
+    </div>
+    <div
+        class="window"
+        id="galleryWindow">
+        <div class="titlebar">
+            <span class="windowTitle">
+                Gallery
+            </span>
+            <span class="windowButton">
+                ×
+            </span>
+        </div>
+        <div class="windowContent">
+        </div>
+    </div>
+    <div class="window" id="playerWindow">
+        <div class="titlebar">
+            <span class="windowTitle">foobar2000 v2.26 - GloobOS</span>
+            <span class="windowButton">×</span>
+        </div>
+        <div class="windowContent musicPlayer">
+            <div class="foobarMenu">
+                <span>File</span>
+                <span>Edit</span>
+                <span>View</span>
+                <span>Playback</span>
+                <span>Library</span>
+                <span>Help</span>
+            </div>
+            <div class="foobarToolbar">
+                <div class="playerControls">
+                    <button class="playerButton" id="fbStop" title="Stop">□</button>
+                    <button class="playerButton" data-player-action="prev" title="Previous">⏮</button>
+                    <button class="playerButton primary" data-player-action="toggle" title="Play / Pause">▶</button>
+                    <button class="playerButton" data-player-action="next" title="Next">⏭</button>
+                </div>
+                <canvas id="fbMeter" width="90" height="22" aria-label="Audio spectrum"></canvas>
+                <label class="fbVolume">
+                    Volume
+                    <input id="fbVolume" aria-label="Volume" type="range" min="0" max="1" step="0.01" value="1">
+                </label>
+                <div class="foobarTrackInfo">
+                    <span id="playerTitle">music</span>
+                    <span id="playerStatus">STOPPED</span>
+                </div>
+            </div>
+            <div class="foobarSeek">
+                <span id="playerCurrentTime">00:00</span>
+                <input
+                    id="playerProgress"
+                    class="playerProgress"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0">
+                <span id="playerTotalTime">00:00</span>
+            </div>
+            <div class="foobarWorkspace">
+                <div class="foobarSidebar">
+                    <div class="fbSidebarTabs">
+                        <button type="button" data-fb-tab="properties">Properties</button>
+                        <button type="button" data-fb-tab="playlists">Playlists</button>
+                    </div>
+                    <div id="fbPlaylists" hidden>
+                        <div>Default Playlist</div>
+                        <div id="musicScanStatus">Loading Music/…</div>
+                    </div>
+                    <div class="foobarPanelTitle">Properties</div>
+                    <div class="foobarProperties">
+                        <div class="propertySection">Metadata</div>
+                        <div class="propertyRow"><span>Title</span><span id="foobarMetaTitle">music</span></div>
+                        <div class="propertyRow"><span>Artist</span><span id="foobarMetaArtist">Unknown</span></div>
+                        <div class="propertyRow"><span>Album</span><span id="foobarMetaAlbum">Unknown</span></div>
+                        <div class="propertyRow"><span>Year</span><span id="foobarMetaYear">—</span></div>
+                        <div class="propertyRow"><span>Genre</span><span id="foobarMetaGenre">—</span></div>
+                        <div class="propertyRow"><span>Album artist</span><span id="foobarMetaAlbumArtist">—</span></div>
+                        <div class="propertyRow"><span>Track</span><span id="foobarMetaTrack">—</span></div>
+                        <div class="propertyRow"><span>Disc</span><span id="foobarMetaDisc">—</span></div>
+                        <div class="propertyRow"><span>Composer</span><span id="foobarMetaComposer">—</span></div>
+                        <div class="propertySection">Technical information</div>
+                        <div class="propertyRow"><span>Bitrate</span><span id="foobarMetaBitrate">—</span></div>
+                        <div class="propertyRow"><span>Duration</span><span id="foobarMetaDuration">—</span></div>
+                        <div class="propertyRow"><span>Codec</span><span id="foobarMetaCodec">—</span></div>
+                        <div class="propertyRow"><span>Channels</span><span id="foobarMetaChannels">—</span></div>
+                        <div class="propertyRow"><span>Sample rate</span><span id="foobarMetaRate">—</span></div>
+                    </div>
+                    <div class="foobarArtwork">
+                        <img id="playerCover" alt="Album cover">
+                        <div id="playerAlbumName">Unknown Album</div>
+                        <div id="playerArtistName">Unknown Artist</div>
+                    </div>
+                </div>
+                <div class="foobarMain">
+                    <div class="fbPlaylistLabel">
+                        Playlist:
+                        <select aria-label="Playlist">
+                            <option>Default Playlist</option>
+                        </select>
+                    </div>
+                    <div class="foobarColumns">
+                        <span>Playing</span>
+                        <span>Artist/album</span>
+                        <span>Track no</span>
+                        <span>Title / track artist</span>
+                        <span>Duration</span>
+                    </div>
+                    <div class="foobarPlaylist" id="playerPlaylist"></div>
+                    <canvas id="fbSpectrogram" width="900" height="180" aria-label="Live stereo spectrogram"></canvas>
+                </div>
+            </div>
+            <div class="foobarStatusbar">
+                <span id="foobarPlaybackStatus">Stopped | MP3 | Stereo</span>
+                <span id="foobarTrackCount">1 track</span>
+            </div>
+        </div>
+    </div>
+    <div id="taskbar">
+        <div class="startDock">
+            <button class="start" type="button" data-action="start" aria-label="Applications" aria-expanded="false" aria-controls="startMenu">
+                <img class="startIcon" src="Icons/car.png" alt="">
+            </button>
+            <div id="startMenu"></div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+<script>
+const $ =
+    id =>
+        document.getElementById(id);
+const bootLines = [
+    '<span class="dim">GloobOS 1.0 x86_64</span>',
+    '',
+    '<span class="ok">[  OK  ]</span> Started system initialization.',
+    '<span class="ok">[  OK  ]</span> Loaded kernel modules.',
+    '<span class="ok">[  OK  ]</span> Mounted /dev.',
+    '<span class="ok">[  OK  ]</span> Mounted /home.',
+    '<span class="ok">[  OK  ]</span> Mounted /projects.',
+    '<span class="ok">[  OK  ]</span> Initialized graphics subsystem.',
+    '<span class="ok">[  OK  ]</span> Started network service.',
+    '<span class="ok">[  OK  ]</span> Started audio service.',
+    '<span class="ok">[  OK  ]</span> Started project database.',
+    '<span class="ok">[  OK  ]</span> Loaded user profile.',
+    '',
+    'GloobOS login: guest',
+    'Password: ********',
+    '',
+    'Last login: Sun Oct 5 10:29:04',
+    '',
+    'guest@Gloob:~$ start',
+    '',
+    'Starting graphical environment...',
+    '',
+    'Started!'
+];
+const musicLibrary = [
+    {
+        title: "",
+        src: "",
+        filename: ""
+    }
+];
+const audio = new Audio();
+let playbackMessage = "";
+audio.preload = "metadata";
+const projects = {
+    audio:{
+        title:
+            "Meowav",
+        tags:[
+            "Teensy",
+            "C++",
+            "OLED",
+            "Audio"
+        ],
+        description:
+            "A standalone embedded music player built around the Teensy 4.0 and the Teensy 4.0 audio shield, with an OLED interface, SD card playback, and keyboard navigation. It features an OLED screen, SD card playback, keyboard navigation, song browsing, search, volume control, shuffle, repeat and animated playback information, everything you would expect a music player to have.",
+        hardware:
+            "Teensy 4.0 | Teensy 4.0 audio shield | SSD1306 OLED | SD Card | CardKB"
+    }
+};
+
+const apps = [
+    {
+        label:"Projects",
+        icon:
+            "Icons/folder-violet.png",
+        top:60,
+        action:()=>{
+            openWindow(
+                "projectsWindow"
+            )
+        }
+    },
+    {
+        label:"About Me",
+        icon:
+            "Icons/computer.png",
+        top:155,
+        action:()=>{
+            openWindow(
+                "aboutWindow"
+            )
+        }
+    },
+    {
+        label:"Terminal",
+        icon:
+            "Icons/utilities-terminal.png",
+        top:250,
+        action:
+            openTerminal
+    },
+    {
+        label:"FooBar2000",
+        icon:
+            "Icons/juk.png",
+        top: 345,
+        action:()=>{
+            openWindow(
+                "playerWindow"
+            )
+        }
+    },
+      {
+        label:"Darktable",
+        icon:
+            "Icons/Darktable_icon.png",
+        top: 440,
+        action:()=>{
+            openWindow(
+                "galleryWindow"
+            )
+        }
+    }
+];
+const terminalCommands = {
+    help:
+`Available commands:
+help        show available commands
+about       information about me
+projects    list projects
+open NAME   open a project
+ls          list files
+whoami      current user
+uname -a    system information
+neofetch    system information
+date        current date
+clear       clear terminal
+sudo        absolutely not
+`,
+    ls:
+`about.txt
+projects/
+README.txt
+`,
+    projects:
+`teensy-audio-player/
+web-synth/
+uav/
+electronics/
+`,
+    about:
+`Hello!!!
+
+I'm Violet. I’m an engineering student based in New Jersey with a passion for understanding how things work and bringing my stupid ideas to life. Whether it's building stupid robots, experimenting with embedded systems, developing the most poorly programmed software, or exploring the technology of the past, I love learning, tinkering, and creating things!
+
+I know a handful of programming languages like C++ (my love ), Python, HTML/CSS, Lua, and some Rust.
+
+Outside of engineering, I'm a “musician”, music enthusiast, and photographer. I play a wide variety of instruments: banjo, mandolin, guitar, flute, keyboard, and I'm currently learning the viola. I enjoy listening to and producing music, particularly indie folk and folktronica, but I appreciate and love every genre.
+
+I'm also fascinated by entomology and the natural world, especially the little things happening all around us that often go unnoticed.
+
+Some of my favorite artists are Yealoker, Cosmo Sheldrake, Sparkbird, and The Crain Wives, Fish in a Birdcage, alt-J, Message to Bears, Will Wood, Cavetown, Pierce the Veil,
+
+I also love playing video games! Some of my current favorites are Warframe, Deadlock, Minecraft, and Plants vs. Zombies, Subnatica, Factorio, and the Resident Evil series.
+
+I'm always looking for something new to explore, something old to rediscover, and new people to talk to. I love taking things apart, figuring out how they work, and documenting the world around me along the way.
+`,
+    whoami:
+`guest
+`,
+    uname:
+`GloobOS gloob 1.0.0 x86_64 GNU/Linux
+`,
+    neofetch:String.raw`
+                             ++                             
+                           +----+                           
+                          +------+                          
+                 --      +--------+     --                  
+                -----    +++++-++++   -----               
+             +------++ ++++++++++++ ++------+              
+             +-----++++++++++++++++++++-----+               
+              ++++++++++++++++++++++++++++++               
+               ++++++++###########+++++++++                
+         +----++++++++##############++++++++----+         
+         ------++++###################+++++------          
+          ----++++#####################+++++----           
+           ++++++++####################++++++++            
+             #++++######################++++#              
+                +########################+                 
+                      #####    #####                       
+guest@Violet
+--------------
+OS: GloobOS x86_64
+Host: Nelumbo Labs
+Kernel: 4.2.0-gloob
+Shell: bash
+DE: tux-Desktop
+Terminal: gloob-term
+CPU: 11th Gen Intel(R) Core(TM) i7-1185G7 (8) @ 4.80 GHz
+GPU 1: NVIDIA Quadro T500 Mobile [Discrete]
+Memory: 4.37 GiB / 31.03 GiB (14%)
+`,
+    sudo:
+`guest is not in the sudoers file.
+Nice try buddy.
+`
+};
+let bootFinished = false;
+let z = 200;
+let dragWin = null;
+let offsetX = 0;
+let offsetY = 0;
+let currentTrackIndex = 0;
+let trackRequest = 0;
+const audioExtensions = /\.(mp3|wav|ogg|oga|flac|m4a|aac)$/i;
+const $safe = value => String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+})[c]);
+function formatTime(seconds) {
+    if (!Number.isFinite(seconds) || seconds < 0) return "00:00";
+    const m = Math.floor(seconds / 60), sec = Math.floor(seconds % 60);
+    return `${String(m).padStart(2,"0")}:${String(sec).padStart(2,"0")}`;
+}
+function nameFromFile(name) {
+    try { return decodeURIComponent(name.split("/").pop()).replace(/\.[^.]+$/, ""); }
+    catch { return name.split("/").pop().replace(/\.[^.]+$/, ""); }
+}
+function codecFromFile(name) {
+    const ext = (name.split(".").pop() || "").toUpperCase();
+    return ({M4A:"AAC", OGA:"OGG"})[ext] || ext;
+}
+// Browser-side MP3 metadata and embedded cover reader; no CDN required for MP3s.
+function cleanMusicText(value) {
+    if (value == null) return "";
+    if (Array.isArray(value)) value = value.filter(Boolean).join("; ");
+    return String(value).replace(/\0+/g, "; ").replace(/^[\s;/\\]+|[\s;/\\]+$/g, "").replace(/\s{2,}/g, " ").trim();
+}
+const emptyAlbumArt = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><rect width="240" height="240" fill="#303038"/><circle cx="120" cy="108" r="64" fill="#54545f"/><circle cx="120" cy="108" r="20" fill="#303038"/><text x="120" y="204" text-anchor="middle" font-family="Arial" font-size="15" fill="#eee">NO ALBUM ART</text></svg>');
+function setTrackCover(track) {
+    const cover = $("playerCover");
+    if (!cover) return;
+    cover.style.display = "block";
+    const filename = track.filename || nameFromFile(track.src || track.title || "");
+    const stem = filename.replace(/\.[^.]+$/, "");
+    const paths = [".jpg", ".jpeg", ".png", ".webp"].map(extension =>
+        new URL(`Music/Covers/${encodeURIComponent(stem)}${extension}`, document.baseURI).href);
+    paths.push(emptyAlbumArt);
+    const key = paths.join("|");
+    if (cover.dataset.coverKey === key) return;
+    cover.dataset.coverKey = key;
+    let index = 0;
+    cover.onerror = () => { if (++index < paths.length) cover.src = paths[index]; };
+    cover.src = paths[0];
+}
+const syncSafe = b => ((b[0]&127)*2097152) + ((b[1]&127)*16384) + ((b[2]&127)*128) + (b[3]&127);
+function decodeID3Text(bytes) {
+    if (!bytes.length) return "";
+    const encoding = bytes[0];
+    let body = bytes.subarray(1);
+    try {
+        if (encoding === 0) return cleanMusicText(new TextDecoder("iso-8859-1").decode(body));
+        if (encoding === 3) return cleanMusicText(new TextDecoder("utf-8").decode(body));
+        if (encoding === 1) {
+            if (body[0] === 254 && body[1] === 255) return cleanMusicText(new TextDecoder("utf-16be").decode(body.subarray(2)));
+            if (body[0] === 255 && body[1] === 254) body = body.subarray(2);
+            return cleanMusicText(new TextDecoder("utf-16le").decode(body));
+        }
+        if (encoding === 2) return cleanMusicText(new TextDecoder("utf-16be").decode(body));
+    } catch(e) { console.warn("ID3 text decode:",e); }
+    return "";
+}
+async function readID3(blob) {
+    const header = new Uint8Array(await blob.slice(0,10).arrayBuffer());
+    if (header.length < 10 || String.fromCharCode(...header.subarray(0,3)) !== "ID3") return {};
+    const version=header[3];
+    if (![2,3,4].includes(version)) return {};
+    const size=syncSafe(header.subarray(6,10));
+    if (!size || size > 32*1024*1024) return {};
+    const data=new Uint8Array(await blob.slice(10,10+size).arrayBuffer());
+    let pos=0;
+    if (header[5]&0x40) {
+        if (version===3 && data.length>=4) pos=4+new DataView(data.buffer,data.byteOffset,4).getUint32(0);
+        if (version===4 && data.length>=4) pos=syncSafe(data.subarray(0,4));
+    }
+    const tags={};
+    const keys={TIT2:"title",TPE1:"artist",TALB:"album",TPE2:"albumArtist",TDRC:"year",TYER:"year",TCON:"genre",TRCK:"trackNumber",TPOS:"discNumber",TCOM:"composer",TBPM:"bpm",TT2:"title",TP1:"artist",TAL:"album",TP2:"albumArtist",TYE:"year",TCO:"genre",TRK:"trackNumber",TPA:"discNumber",TCM:"composer"};
+    for (let n=0;n<500;n++) {
+        const h=version===2?6:10;
+        if (pos+h>data.length) break;
+        const id=new TextDecoder("latin1").decode(data.subarray(pos,pos+(version===2?3:4)));
+        if (!/^[A-Z0-9]{3,4}$/.test(id)) break;
+        const len=version===2 ? (data[pos+3]*65536+data[pos+4]*256+data[pos+5]) : version===4 ? syncSafe(data.subarray(pos+4,pos+8)) : new DataView(data.buffer,data.byteOffset+pos+4,4).getUint32(0);
+        if (!len || pos+h+len>data.length) break;
+        const frame=data.subarray(pos+h,pos+h+len);
+        // Encrypted/compressed frames cannot be decoded as ordinary text.
+        const unsupported=version===3 ? !!(data[pos+9]&0xc0) : version===4 ? !!(data[pos+9]&0x0c) : false;
+        if (!unsupported) {
+            if (keys[id]) tags[keys[id]]=decodeID3Text(frame);
+        }
+        pos+=h+len;
+    }
+    return tags;
+}
+async function readTags(track) {
+    let blob=track.file;
+    try {
+        if (!blob) {
+            const response=await fetch(track.src);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            blob=await response.blob();
+        }
+        // Read text tags; album artwork comes from Music/Covers/.
+        const native=await readID3(blob);
+        if (Object.keys(native).length) return native;
+        // For FLAC/M4A or ID3 variants, read the already-fetched Blob (avoids extra XHR/range issues).
+        if (window.jsmediatags) return await new Promise(resolve => {
+            new jsmediatags.Reader(blob)
+                .setTagsToRead(["title", "artist", "album", "year", "track", "genre"])
+                .read({
+                onSuccess: ({tags}) => {
+                    const field=id=>cleanMusicText(tags[id]?.data);
+                    resolve({title:cleanMusicText(tags.title),artist:cleanMusicText(tags.artist),album:cleanMusicText(tags.album),
+                        albumArtist:field("TPE2") || field("aART"),year:cleanMusicText(tags.year) || field("TDRC"),
+                        genre:cleanMusicText(tags.genre),trackNumber:cleanMusicText(tags.track),discNumber:field("TPOS"),
+                        composer:field("TCOM")});
+                },
+                onError:e=>{console.warn("Other-format metadata:",e);resolve({});}
+            });
+        });
+        return native;
+    } catch(error) {
+        console.warn("Cannot read song tags:",track.src,error);
+        return {};
+    }
+}
+function renderMusicFiles() {
+    $("musicFiles").innerHTML = musicLibrary.map((track,index) => `
+        <div class="file" data-music="${index}">
+            <img class="iconSymbol" src="Icons/juk.png" alt="">
+            ${$safe(track.title)}
+        </div>`).join("");
+}
+function updatePlayerUI() {
+    const track = musicLibrary[currentTrackIndex];
+    if (!track) return;
+    const playing = !audio.paused && !audio.ended;
+    document.querySelector("#playerWindow > .titlebar .windowTitle").textContent =
+        `${track.title ? `${track.title} - ` : ""}foobar2000 v2.26 - GloobOS`;
+    $("playerTitle").textContent = track.title;
+    $("playerStatus").textContent = playbackMessage || (audio.error ? "FILE ERROR" : playing ? "PLAYING" : audio.currentTime ? "PAUSED" : "STOPPED");
+    $("playerCurrentTime").textContent = formatTime(audio.currentTime);
+    $("playerTotalTime").textContent = formatTime(audio.duration || track.seconds);
+    $("playerProgress").value = Number.isFinite(audio.duration) && audio.duration>0 ? audio.currentTime/audio.duration*100 : 0;
+    const toggle = document.querySelector('[data-player-action="toggle"]');
+    if (toggle) toggle.textContent = playing ? "⏸" : "▶";
+    $("foobarMetaTitle").textContent = track.title;
+    $("foobarMetaArtist").textContent = track.artist || "Unknown";
+    $("foobarMetaAlbum").textContent = track.album || "Unknown";
+    $("foobarMetaYear").textContent = track.year || "—";
+    $("foobarMetaGenre").textContent = track.genre || "—";
+    $("foobarMetaAlbumArtist").textContent = track.albumArtist || "—";
+    $("foobarMetaTrack").textContent = track.trackNumber || "—";
+    $("foobarMetaDisc").textContent = track.discNumber || "—";
+    $("foobarMetaComposer").textContent = track.composer || "—";
+    $("foobarMetaDuration").textContent = formatTime(audio.duration || track.seconds);
+    $("foobarMetaBitrate").textContent = track.bitrate ? `${track.bitrate} kbps` : "—";
+    $("playerAlbumName").textContent = track.album || "Unknown Album";
+    $("playerArtistName").textContent = track.artist || "Unknown Artist";
+    setTrackCover(track);
+    $("foobarMetaCodec").textContent = codecFromFile(track.filename || track.src);
+    $("foobarMetaChannels").textContent = track.channels || "—";
+    $("foobarMetaRate").textContent = track.sampleRate ? `${track.sampleRate} Hz` : "—";
+    $("foobarPlaybackStatus").textContent = `${$("playerStatus").textContent} | ${codecFromFile(track.filename || track.src)}`;
+    $("foobarTrackCount").textContent = `${musicLibrary.length} track${musicLibrary.length===1?"":"s"}`;
+    $("playerPlaylist").innerHTML = musicLibrary.map((item,index) => `
+        <div class="playlistTrack ${index===currentTrackIndex?"active":""}" data-playlist-track="${index}">
+            <span>${index===currentTrackIndex && playing ? "▶" : ""}</span><span>${$safe([item.artist,item.album].filter(Boolean).join(" - ") || "—")}</span><span>${$safe(item.trackNumber || index+1)}</span>
+            <span class="trackName">${$safe(item.title)}${item.artist ? " — "+$safe(item.artist) : ""}</span>
+            <span class="trackTime">${item.seconds ? formatTime(item.seconds) : "--:--"}</span>
+        </div>`).join("");
+}
+async function inspectTrack(index) {
+    const track = musicLibrary[index];
+    if (!track || track.inspected) return;
+    track.inspected = true;
+    const info = await readTags(track);
+    for (const [key,value] of Object.entries(info)) if (value != null && value !== "") track[key] = value;
+    for (const key of ["title", "artist", "album", "albumArtist", "genre", "composer"]) {
+        if (track[key]) track[key] = cleanMusicText(track[key]);
+    }
+    if (!track.title) track.title = nameFromFile(track.filename || track.src);
+    renderMusicFiles();
+    updatePlayerUI();
+}
+let fallbackAudioURL = null;
+let loadingAudio = false;
+function playTrack(index) {
+    const track = musicLibrary[index];
+    if (!track) return;
+    ++trackRequest;
+    currentTrackIndex = index;
+    playbackMessage = "";
+    if (fallbackAudioURL) {
+        URL.revokeObjectURL(fallbackAudioURL);
+        fallbackAudioURL = null;
+    }
+    audio.pause();
+    audio.src = new URL(track.src, document.baseURI).href;
+    openWindow("playerWindow");
+    updatePlayerUI();
+    inspectTrack(index);
+    audio.play().catch(error => {
+        if (error.name === "NotAllowedError") {
+            playbackMessage = "CLICK PLAY TO ALLOW AUDIO";
+            updatePlayerUI();
+        } else if (!audio.error) {
+            console.warn("Playback could not start:", error);
+        }
+    });
+}
+function togglePlayback() {
+    if (!audio.getAttribute("src")) return playTrack(currentTrackIndex);
+    if (audio.paused) {
+        playbackMessage = "";
+        audio.play().catch(error => {
+            playbackMessage = error.name === "NotAllowedError" ? "CLICK PLAY TO ALLOW AUDIO" : "PLAYBACK FAILED";
+            updatePlayerUI();
+        });
+    } else audio.pause();
+}
+function nextTrack() {
+    if (musicLibrary.length) playTrack((currentTrackIndex+1)%musicLibrary.length);
+}
+function previousTrack() {
+    if (musicLibrary.length) playTrack((currentTrackIndex-1+musicLibrary.length)%musicLibrary.length);
+}
+async function showMusicError(src, error) {
+    const status = $("musicScanStatus");
+    if (!src) return;
+    const code = audio.error?.code;
+    let reason = code === 3 ? "The browser could not decode the audio" :
+        code === 4 ? "The browser could not use this audio source" :
+        code === 2 ? "A network error interrupted the audio" :
+        error?.message || "Unable to load audio";
+    try {
+        const response = await fetch(src, {method:"GET",headers:{Range:"bytes=0-1023"},cache:"no-store"});
+        const type = response.headers.get("content-type") || "unknown";
+        const head = new Uint8Array(await response.clone().arrayBuffer());
+        const prefix = new TextDecoder().decode(head.slice(0,120)).trimStart().toLowerCase();
+        const html = type.includes("text/html") || prefix.startsWith("<!doctype html") || prefix.startsWith("<html");
+        if (!response.ok) reason = `HTTP ${response.status} — file not served`;
+        else if (html) reason = "Server sent HTML instead of an audio file";
+        else reason += ` (HTTP ${response.status}, ${type})`;
+    } catch (e) {
+        reason += ` (file request blocked: ${e.message})`;
+    }
+    if (audio.currentSrc !== src && audio.src !== src) return;
+    status.textContent = `${reason}. URL: ${src}`;
+    status.title = src;
+    console.error("Audio playback failed", {reason,src,error});
+}
+async function retryAudioAsBlob(src, request) {
+    if (loadingAudio || fallbackAudioURL) return;
+    loadingAudio = true;
+    try {
+        const response = await fetch(src);F
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const contentType = response.headers.get("content-type") || "";
+        const bytes = await response.arrayBuffer();
+        const start = new TextDecoder().decode(bytes.slice(0,100)).trimStart().toLowerCase();
+        if (contentType.includes("text/html") || start.startsWith("<!doctype html") || start.startsWith("<html"))
+            throw new Error("Server returned HTML, not audio");
+        if (request !== trackRequest) return;
+        const extension = musicLibrary[currentTrackIndex]?.src.split("?")[0].split(".").pop().toLowerCase();
+        const mime = ({mp3:"audio/mpeg",wav:"audio/wav",ogg:"audio/ogg",oga:"audio/ogg",flac:"audio/flac",m4a:"audio/mp4",aac:"audio/aac"})[extension] || "application/octet-stream";
+        fallbackAudioURL = URL.createObjectURL(new Blob([bytes], {type:mime}));
+        audio.src = fallbackAudioURL;
+        playbackMessage = "";
+        await audio.play();
+    } catch (e) {
+        playbackMessage = "AUDIO FAILED — SEE DETAILS BELOW";
+        $("musicScanStatus").textContent = `Audio failed: ${e.message}. Source: ${src}`;
+        console.error("Blob audio fallback failed",e);
+    } finally {
+        loadingAudio = false;
+        updatePlayerUI();
+    }
+}
+async function loadMusicLibrary() {
+    const base = new URL("Music/", document.baseURI);
+    const status = $("musicScanStatus");
+    const candidates = [];
+    const add = path => {
+        try {
+            const cleanPath = String(path).trim().replace(/^\.\//, "").replace(/^\/?Music\//i, "");
+            const u = new URL(cleanPath, base);
+            if (u.origin !== base.origin || !u.pathname.startsWith(base.pathname)) return;
+            if (!audioExtensions.test(decodeURIComponent(u.pathname))) return;
+            if (!candidates.some(x => x.src === u.href)) {
+                candidates.push({title:nameFromFile(u.pathname),filename:nameFromFile(u.pathname),src:u.href});
+            }
+        } catch(e) { console.warn("Invalid song path", path, e); }
+    };
+    try {
+        const response = await fetch(new URL("songs.json", base), {cache:"no-store"});
+        if (response.ok && (response.headers.get("content-type") || "").includes("json")) {
+            const data = await response.json();
+            for (const entry of Array.isArray(data) ? data : data.songs || []) {
+                add(typeof entry === "string" ? entry : entry?.file);
+            }
+        }
+    } catch (e) { console.info("No music manifest:", e); }
+    try {
+        if (!candidates.length) {
+            const r = await fetch(base, {cache:"no-store"});
+            if (r.ok && (r.headers.get("content-type") || "").includes("html")) {
+                const doc = new DOMParser().parseFromString(await r.text(), "text/html");
+                for (const link of doc.querySelectorAll("a[href]")) add(link.getAttribute("href"));
+            }
+        }
+    } catch (e) { console.info("No Music/ directory index:", e); }
+    if (!candidates.length) {
+        status.textContent = "No songs found. Enable directory listings for Music/ on the server.";
+        return;
+    }
+    audio.pause();
+    audio.removeAttribute("src");
+    audio.load();
+    musicLibrary.splice(0, musicLibrary.length, ...candidates);
+    currentTrackIndex = 0;
+    playbackMessage = "";
+    renderMusicFiles();
+    updatePlayerUI();
+    status.textContent = `${musicLibrary.length} song${musicLibrary.length===1?"":"s"} listed in Music/`;
+    Promise.allSettled(musicLibrary.map((_,i) => inspectTrack(i)));
+}
+$("playerProgress").addEventListener("input", e => {
+    if (Number.isFinite(audio.duration) && audio.duration>0) audio.currentTime = audio.duration*Number(e.target.value)/100;
+});
+audio.addEventListener("timeupdate", () => {
+    const duration=audio.duration;
+    $("playerCurrentTime").textContent=formatTime(audio.currentTime);
+    $("playerProgress").value=Number.isFinite(duration)&&duration>0 ? audio.currentTime/duration*100 : 0;
+});
+audio.addEventListener("loadedmetadata", () => {
+    const track=musicLibrary[currentTrackIndex];
+    if (track) { track.seconds=audio.duration; }
+    updatePlayerUI();
+});
+audio.addEventListener("play",updatePlayerUI);
+audio.addEventListener("pause",updatePlayerUI);
+audio.addEventListener("ended",nextTrack);
+audio.addEventListener("error", () => {
+    const src = audio.currentSrc || audio.src;
+    if (!src || !musicLibrary.length) return;
+    const request = trackRequest;
+    if (audio.error?.code === 4 && !fallbackAudioURL) {
+        playbackMessage = "TRYING AUDIO FALLBACK";
+        updatePlayerUI();
+        retryAudioAsBlob(src,request);
+    } else {
+        playbackMessage = "AUDIO FAILED — SEE DETAILS BELOW";
+        updatePlayerUI();
+        showMusicError(src,audio.error);
+    }
+});
+/* BUILD DESKTOP */
+function renderDesktop(){
+    $("desktopIcons").innerHTML =
+        apps.map(
+            (app,index)=>`
+                <div
+                    class="icon"
+                    data-app="${index}"
+                    style="
+                        left:12px;
+                        top:${app.top}px
+                    ">
+                    <img
+                        class="iconSymbol"
+                        src="${app.icon}"
+                        alt="">
+                    ${app.label}
+                </div>
+            `
+        ).join("");
+    $("projectFiles").innerHTML =
+        Object.entries(projects)
+        .map(
+            ([id,project])=>`
+                <div
+                    class="file"
+                    data-project="${id}">
+                    <img
+                        class="iconSymbol"
+                        src="Icons/folder-violet.png"
+                        alt="">
+                    ${project.title}
+                </div>
+            `
+        )
+        .join("");
+    renderMusicFiles();
+   $("startMenu").innerHTML =
+        apps.map(
+            (app,index)=>`
+                <div
+                    class="menuItem"
+                    data-menu-app="${index}">
+                    <img class="menuIcon" src="${app.icon}" alt="">
+                    ${app.label}
+                </div>
+            `
+        )
+        .join("");
+}
+/* BOOT */
+function runBoot(){
+    let i = 0;
+    const terminal =
+        $("terminalBoot");
+    function next(){
+        if(bootFinished){
+            return
+        }
+        if(
+            i >=
+            bootLines.length
+        ){
+            setTimeout(
+                finishBoot,
+                700
+            );
+            return
+        }
+        terminal.insertAdjacentHTML(
+            "beforeend",
+            bootLines[i++] +
+            "<br>"
+        );
+        setTimeout(
+            next,
+            Math.random() *
+            100 +
+            35
+        );
+    }
+    next();
+}
+function startBoot(){
+    setTimeout(()=>{
+        if(bootFinished){
+            return
+        }
+        $("logoScreen")
+            .style
+            .opacity = 0;
+        setTimeout(()=>{
+            $("logoScreen")
+                .style
+                .display =
+                    "none";
+            $("terminalBoot")
+                .style
+                .display =
+                    "block";
+            runBoot();
+        },700);
+    },2300);
+}
+function finishBoot(){
+    if(bootFinished){
+        return
+    }
+    bootFinished = true;
+    const boot =
+        $("boot");
+    boot.style.transition =
+        "opacity .5s";
+    boot.style.opacity =
+        0;
+    setTimeout(()=>{
+        boot.style.display =
+            "none";
+        $("desktop")
+            .style
+            .display =
+                "block";
+    },500);
+}
+/* CLOCK */
+function updateClock(){
+    $("clock").textContent =
+        new Date()
+        .toLocaleTimeString(
+            [],
+            {
+                hour:"2-digit",
+                minute:"2-digit"
+            }
+        );
+}
+/* WINDOWS */
+function openWindow(id){
+    const win =
+        $(id);
+    if (!win) return;
+    win.classList.add(
+        "open"
+    );
+    win.style.zIndex =
+        ++z;
+}
+function closeWindow(win){
+    win.classList.remove(
+        "open"
+    );
+}
+/* START MENU */
+function toggleStart(force){
+    const menu =
+        $("startMenu");
+    const open = typeof force === "boolean"
+        ? force
+        : !menu.classList.contains("open");
+    menu.classList.toggle("open", open);
+    document.querySelector('[data-action="start"]').setAttribute("aria-expanded", String(open));
+}
+const startDock = document.querySelector(".startDock");
+startDock.addEventListener("mouseenter", () => toggleStart(true));
+startDock.addEventListener("mouseleave", () => toggleStart(false));
+startDock.addEventListener("focusin", () => toggleStart(true));
+startDock.addEventListener("focusout", event => {
+    if (!startDock.contains(event.relatedTarget)) toggleStart(false);
+});
+/* TERMINAL */
+function openTerminal(){
+    openWindow(
+        "terminalWindow"
+    );
+    setTimeout(
+        ()=>
+            $("terminalInput")
+            .focus(),
+        50
+    );
+}
+function appendTerminal(text){
+    $("terminalOutput")
+        .textContent +=
+        text;
+}
+function executeCommand(command){
+    const args =
+        command
+        .trim()
+        .split(/\s+/);
+    const cmd =
+        (
+            args.shift() ||
+            ""
+        )
+        .toLowerCase();
+    if(!cmd){
+        return
+    }
+    if(
+        cmd ===
+        "clear"
+    ){
+        $("terminalOutput")
+            .textContent =
+                "";
+        return
+    }
+    if(
+        cmd ===
+        "date"
+    ){
+        appendTerminal(
+            new Date()
+            .toString() +
+            "\n\n"
+        );
+        return
+    }
+    if(
+        cmd ===
+        "open"
+    ){
+        const target =
+            args
+            .join(" ")
+            .toLowerCase();
+        let project = null;
+        if(
+            target.includes(
+                "audio"
+            ) ||
+            target.includes(
+                "teensy"
+            )
+        ){
+            project =
+                "audio";
+        }
+        else if(
+            target.includes(
+                "synth"
+            )
+        ){
+            project =
+                "synth";
+        }
+        else if(
+            target.includes(
+                "uav"
+            )
+        ){
+            project =
+                "uav";
+        }
+        else if(
+            target.includes(
+                "elect"
+            )
+        ){
+            project =
+                "electronics";
+        }
+        if(project){
+            showProject(
+                project
+            );
+        }
+        else{
+            appendTerminal(
+                "open: project not found\n\n"
+            );
+        }
+        return
+    }
+    if(
+        terminalCommands[
+            cmd
+        ]
+    ){
+        appendTerminal(
+            terminalCommands[
+                cmd
+            ]
+        );
+        return
+    }
+    appendTerminal(
+        cmd +
+        ": command not found\n\n"
+    );
+}
+/* PROJECT VIEW */
+function showProject(name){
+    const project =
+        projects[name];
+    if(!project){
+        return
+    }
+    $("projectWindowTitle")
+        .textContent =
+            project.title;
+    const tags =
+        project.tags
+        .map(
+            tag=>
+                `<span class="projectTag">${tag}</span>`
+        )
+        .join("");
+    $("projectContent")
+        .innerHTML = `
+            <h1>
+                ${project.pageTitle || project.title}
+            </h1>
+            <div>
+                ${tags}
+            </div>
+            <p>
+                ${project.description}
+            </p>
+            ${
+                project.extra
+                ? `
+                    <p>
+                        ${project.extra}
+                    </p>
+                `
+                : ""
+            }
+            ${
+                project.hardware
+                ? `
+                    <h3>
+                        Hardware
+                    </h3>
+                    <p>
+                        ${project.hardware}
+                    </p>
+                `
+                : ""
+            }
+        `;
+    openWindow(
+        "projectWindow"
+    );
+}
+/* DESKTOP DOUBLE CLICK */
+document.addEventListener(
+    "dblclick",
+    event=>{
+        const icon =
+            event.target
+            .closest(
+                "[data-app]"
+            );
+        if(!icon){
+            return
+        }
+        apps[
+            +icon.dataset.app
+        ]
+        .action();
+    }
+);
+/* CLICKS */
+document.addEventListener(
+    "click",
+    event=>{
+        if(
+            event.target
+            .closest(
+                "#skip"
+            )
+        ){
+            finishBoot();
+            return
+        }
+        if(
+            event.target
+            .closest(
+                '[data-action="start"]'
+            )
+        ){
+            toggleStart(true);
+            return
+        }
+        if(!event.target.closest(".startDock")) toggleStart(false);
+        const close =
+            event.target
+            .closest(
+                ".windowButton"
+            );
+        if(close){
+            closeWindow(
+                close.closest(
+                    ".window"
+                )
+            );
+            return
+        }
+        const file =
+            event.target
+            .closest(
+                "[data-project]"
+            );
+        if(file){
+            showProject(
+                file.dataset
+                .project
+            );
+            return
+        }
+        const musicFile =
+            event.target
+            .closest(
+                "[data-music]"
+            );
+        if(musicFile){
+            playTrack(
+                Number(
+                    musicFile.dataset.music
+                )
+            );
+            return
+        }
+        const playlistItem =
+            event.target
+            .closest(
+                "[data-playlist-track]"
+            );
+        if(playlistItem){
+            playTrack(
+                Number(
+                    playlistItem.dataset.playlistTrack
+                )
+            );
+            return
+        }
+        const playerButton =
+            event.target
+            .closest(
+                "[data-player-action]"
+            );
+        if(playerButton){
+            const action =
+                playerButton.dataset.playerAction;
+            if(action === "toggle"){
+                togglePlayback();
+            }
+            else if(action === "next"){
+                nextTrack();
+            }
+            else if(action === "prev"){
+                previousTrack();
+            }
+            return
+        }
+        const menuItem =
+            event.target
+            .closest(
+                "[data-menu-app]"
+            );
+        if(menuItem){
+            apps[
+                +menuItem
+                .dataset
+                .menuApp
+            ]
+            .action();
+            toggleStart(
+                false
+            );
+        }
+    }
+);
+/* KEYBOARD */
+document.addEventListener(
+    "keydown",
+    event=>{
+        if(
+            event.key ===
+            "Escape" &&
+            !bootFinished
+        ){
+            finishBoot();
+            return
+        }
+        if(
+            event.key ===
+            "Escape"
+        ){
+            toggleStart(
+                false
+            );
+        }
+    }
+);
+/* WINDOW DRAGGING AND OPTIONAL EFFECTS */
+const reducedWindowMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let windowEffectsEnabled=true;
+try{windowEffectsEnabled=localStorage.getItem('gloob.windowEffects')!=='off'}catch{}
+const windowMotion=new Map();
+let motionFrame=0,motionTime=0,dragPointer=null,dragBar=null,lastDragX=0,lastDragY=0,lastDragTime=0;
+const clampMotion=(value,min,max)=>Math.max(min,Math.min(max,value));
+function clearWindowMotion(win){
+ const state=windowMotion.get(win);if(!state)return;
+ win.style.transform=state.transform;win.style.transformOrigin=state.origin;win.style.willChange=state.willChange;win.style.transition=state.transition;
+ windowMotion.delete(win);
+}
+function tickWindowMotion(time){
+ const dt=Math.min((time-motionTime)/1000||1/60,1/30);motionTime=time;
+ for(const [win,s] of windowMotion){
+  s.velocity+=(-180*s.angle-17*s.velocity)*dt;s.angle+=s.velocity*dt;
+  s.skewVelocity+=(-180*s.skew-17*s.skewVelocity)*dt;s.skew+=s.skewVelocity*dt;
+  s.angle=clampMotion(s.angle,-1.4,1.4);s.skew=clampMotion(s.skew,-1.8,1.8);
+  win.style.transform=`rotate(${s.angle}deg) skewX(${s.skew}deg)`;
+  if(Math.abs(s.angle)+Math.abs(s.skew)+Math.abs(s.velocity)+Math.abs(s.skewVelocity)<.015)clearWindowMotion(win);
+ }
+ motionFrame=windowMotion.size?requestAnimationFrame(tickWindowMotion):0;
+}
+function nudgeWindow(win,dx,dy){
+ if(!windowEffectsEnabled||reducedWindowMotion.matches)return;
+ let s=windowMotion.get(win);
+ if(!s){s={angle:0,skew:0,velocity:0,skewVelocity:0,transform:win.style.transform,origin:win.style.transformOrigin,willChange:win.style.willChange,transition:win.style.transition};windowMotion.set(win,s);win.style.transformOrigin=`${clampMotion(offsetX/win.offsetWidth*100,0,100)}% 0`;win.style.willChange='transform';win.style.transition='none'}
+ s.velocity=clampMotion(s.velocity+dx*.76,-12,12);s.skewVelocity=clampMotion(s.skewVelocity-dx*.8+dy*.035,-15,15);
+ if(!motionFrame){motionTime=performance.now();motionFrame=requestAnimationFrame(tickWindowMotion)}
+}
+function updateWindowEffects(){
+ $('windowEffectsToggle').checked=windowEffectsEnabled;
+ $('windowEffectsToggle').disabled=reducedWindowMotion.matches;
+ $('windowEffectsNote').textContent=reducedWindowMotion.matches?'Disabled by your reduced-motion preference.':'A subtle wobble when dragging windows.';
+ if(!windowEffectsEnabled||reducedWindowMotion.matches){for(const win of windowMotion.keys())clearWindowMotion(win);cancelAnimationFrame(motionFrame);motionFrame=0}
+}
+$('windowEffectsToggle').addEventListener('change',e=>{windowEffectsEnabled=e.target.checked;try{localStorage.setItem('gloob.windowEffects',windowEffectsEnabled?'on':'off')}catch{}updateWindowEffects()});
+reducedWindowMotion.addEventListener('change',updateWindowEffects);updateWindowEffects();
+$('systemSettings').addEventListener('click',()=>{const menu=$('windowEffectsMenu');menu.hidden=!menu.hidden;$('systemSettings').setAttribute('aria-expanded',String(!menu.hidden))});
+document.addEventListener('click',e=>{if(!e.target.closest('#systemSettings, #windowEffectsMenu')){$('windowEffectsMenu').hidden=true;$('systemSettings').setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('windowEffectsMenu').hidden=true;$('systemSettings').setAttribute('aria-expanded','false')}});
+document.addEventListener('pointerdown',event=>{
+ const clicked=event.target.closest('.window');if(clicked)clicked.style.zIndex=++z;
+ const bar=event.target.closest('.titlebar');
+ if(!bar||bar.parentElement.classList.contains('retro-maximized')||event.button!==0||dragWin||event.target.closest('.windowButton,button,input,select,a'))return;
+ dragWin=bar.parentElement;clearWindowMotion(dragWin);
+ const rect=dragWin.getBoundingClientRect();offsetX=event.clientX-rect.left;offsetY=event.clientY-rect.top;
+ dragWin.style.transform='none';dragWin.style.left=rect.left+'px';dragWin.style.top=rect.top+'px';dragWin.style.zIndex=++z;
+ dragPointer=event.pointerId;dragBar=bar;lastDragX=rect.left;lastDragY=rect.top;lastDragTime=event.timeStamp;
+ bar.setPointerCapture?.(event.pointerId);event.preventDefault();
+});
+document.addEventListener('pointermove',event=>{
+ if(!dragWin||event.pointerId!==dragPointer)return;
+ const x=Math.max(0,Math.min(innerWidth-dragWin.offsetWidth,event.clientX-offsetX)),y=Math.max(32,Math.min(innerHeight-dragWin.offsetHeight-34,event.clientY-offsetY));
+ dragWin.style.left=x+'px';dragWin.style.top=y+'px';
+ const elapsed=Math.max(8,event.timeStamp-lastDragTime),gain=Math.min(1,16/elapsed);
+ nudgeWindow(dragWin,(x-lastDragX)*gain,(y-lastDragY)*gain);
+ lastDragX=x;lastDragY=y;lastDragTime=event.timeStamp;
+});
+function finishWindowDrag(event){
+ if(event?.pointerId!=null&&event.pointerId!==dragPointer)return;
+ const bar=dragBar,id=dragPointer;dragWin=null;dragBar=null;dragPointer=null;
+ if(bar?.hasPointerCapture?.(id))bar.releasePointerCapture(id);
+}
+document.addEventListener('pointerup',finishWindowDrag);
+document.addEventListener('pointercancel',finishWindowDrag);
+document.addEventListener('lostpointercapture',finishWindowDrag);
+window.addEventListener('blur',()=>{finishWindowDrag();for(const win of windowMotion.keys())clearWindowMotion(win);cancelAnimationFrame(motionFrame);motionFrame=0});
+
+/* TERMINAL INPUT */
+$("terminalInput")
+.addEventListener(
+    "keydown",
+    event=>{
+        if(
+            event.key !==
+            "Enter"
+        ){
+            return
+        }
+        const input =
+            event.currentTarget;
+        const command =
+            input.value
+            .trim();
+        appendTerminal(
+            "guest@Violet:~$ " +
+            command +
+            "\n"
+        );
+        executeCommand(
+            command
+        );
+        input.value =
+            "";
+        const terminal =
+            $("terminalArea");
+        terminal.scrollTop =
+            terminal.scrollHeight;
+    }
+);
+/* START */
+try {
+const fbToolbar=document.querySelector('#playerWindow .foobarToolbar');
+fbToolbar.append(document.querySelector('#playerWindow .foobarSeek'));
+document.querySelectorAll('[data-fb-tab]').forEach(button=>{
+ button.setAttribute('aria-selected',String(button.dataset.fbTab==='properties'));
+ button.addEventListener('click',()=>{
+  document.querySelector('#playerWindow .foobarProperties').hidden=button.dataset.fbTab!=='properties';
+  $('fbPlaylists').hidden=button.dataset.fbTab!=='playlists';
+  document.querySelectorAll('[data-fb-tab]').forEach(b=>b.setAttribute('aria-selected',String(b===button)));
+ });
+});
+$('fbVolume').addEventListener('input',e=>audio.volume=Number(e.target.value));
+$('fbStop').addEventListener('click',()=>{audio.pause();if(audio.getAttribute('src'))audio.currentTime=0;playbackMessage='';updatePlayerUI();});
+let fbContext,fbAnalysers;
+function startFbAudio(){
+ try{
+ if(!fbContext){
+  fbContext=new (window.AudioContext||window.webkitAudioContext)();
+  const source=fbContext.createMediaElementSource(audio),splitter=fbContext.createChannelSplitter(2);
+  source.connect(fbContext.destination);source.connect(splitter);
+  fbAnalysers=[0,1].map(channel=>{const analyser=fbContext.createAnalyser();analyser.fftSize=2048;analyser.smoothingTimeConstant=.5;splitter.connect(analyser,channel);return analyser;});
+  drawFbAudio();
+ }
+ fbContext.resume().catch(()=>{});
+ }catch(error){console.info('Audio visualization unavailable',error);}
+}
+document.addEventListener('click',e=>{if(e.target.closest('[data-player-action], [data-playlist-track], [data-music]'))startFbAudio();},true);
+const fbCanvas=$('fbSpectrogram'),fbInk=fbCanvas.getContext('2d'),fbMeter=$('fbMeter'),fbMeterInk=fbMeter.getContext('2d');
+fbInk.fillStyle='#000';fbInk.fillRect(0,0,900,180);
+function drawFbAudio(){
+ requestAnimationFrame(drawFbAudio);
+ if(audio.paused||!fbAnalysers){fbMeterInk.clearRect(0,0,90,22);return;}
+ fbInk.drawImage(fbCanvas,-2,0);fbInk.fillStyle='#000';fbInk.fillRect(898,0,2,180);
+ fbAnalysers.forEach((analyser,channel)=>{
+  const bins=new Uint8Array(analyser.frequencyBinCount);analyser.getByteFrequencyData(bins);
+  for(let y=0;y<89;y++){const bin=Math.min(bins.length-1,Math.floor(Math.pow(y/88,2)*(bins.length-1)));const v=bins[bin];fbInk.fillStyle=`rgb(${v},${v},${v})`;fbInk.fillRect(898,channel*90+88-y,2,1);}
+  if(channel===0){fbMeterInk.clearRect(0,0,90,22);for(let x=0;x<30;x++){const h=bins[Math.floor(Math.pow(x/30,2)*bins.length)]/255*22;fbMeterInk.fillStyle='#30506e';fbMeterInk.fillRect(x*3,22-h,2,h);}}
+ });
+}
+audio.addEventListener('timeupdate',()=>{$('foobarPlaybackStatus').textContent=`${$('playerStatus').textContent} | ${$('foobarMetaCodec').textContent} | ${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;});
+} catch(error) { console.error("Player enhancement failed:", error); }
+renderDesktop();
+updatePlayerUI();
+loadMusicLibrary();
+updateClock();
+setInterval(
+    updateClock,
+    30000
+);
+startBoot();
+</script>
+<script>
+(()=>{
+const win=document.getElementById('galleryWindow'),q=id=>document.getElementById(id);
+win.querySelector('.windowTitle').textContent='darktable';
+win.querySelector('.windowContent').innerHTML=`
+<header class="dt-head"><div class="dt-brand"><img class="dt-logo" src="Icons/Darktable_icon.png" alt=""><span>darktable</span></div><nav class="dt-tabs" aria-label="Gallery mode"><button type="button" id="dtLight" aria-selected="true">lighttable</button><span class="dt-tab-separator" aria-hidden="true">|</span><button type="button" id="dtDark" aria-selected="false">darkroom</button></nav></header>
+<div class="dt-body"><aside class="dt-left">
+<details open><summary>import</summary><div class="dt-panel"><button id="dtImport">add to library…</button><input id="dtInput" type="file" accept="image/*" multiple hidden><div>Photos in Gallery/ load automatically when the server allows directory listings.</div></div></details>
+<details open><summary>collections</summary><div class="dt-panel"><div>film roll</div><button id="dtAll">all photographs <span id="dtTotal">(0)</span></button></div></details>
+<details open><summary>collection filters</summary><div class="dt-panel"><label>rating <select id="dtRating"><option value="0">all images</option><option value="1">★ and above</option><option value="3">★★★ and above</option><option value="5">★★★★★</option></select></label></div></details>
+<details open><summary>image information</summary><div class="dt-panel"><div class="dt-row"><span>filename</span><span id="dtName">—</span></div><div class="dt-row"><span>dimensions</span><span id="dtDimensions">—</span></div><div class="dt-row"><span>type</span><span id="dtType">—</span></div></div></details>
+</aside><main class="dt-main"><div class="dt-tools"><label>sort by <select id="dtSort"><option value="filename">filename</option><option value="added">import order</option></select></label><label>size <input id="dtSize" type="range" min="100" max="260" value="150"></label><span id="dtCount">0 images</span></div><div id="galleryFiles"></div><div id="dtViewer" hidden><img id="dtImage" alt="Selected photograph"></div><div id="dtFilm" class="dt-film" hidden></div></main>
+<aside class="dt-right"><details open><summary>selection</summary><div class="dt-panel"><div id="dtSelected">no image selected</div><button id="dtOpen">open in darkroom</button></div></details><details open><summary>image rating</summary><div class="dt-panel"><select id="dtStars" aria-label="Selected image rating"><option value="0">unrated</option><option value="1">★</option><option value="2">★★</option><option value="3">★★★</option><option value="4">★★★★</option><option value="5">★★★★★</option></select></div></details><details open><summary>view</summary><div class="dt-panel"><button id="dtFit">fit image</button> <button id="dtActual">100%</button></div></details><details open><summary>preview adjustments</summary><div class="dt-panel"><label class="dt-adjust">brightness<input id="dtBrightness" type="range" min="25" max="200" value="100"></label><label class="dt-adjust">contrast<input id="dtContrast" type="range" min="25" max="200" value="100"></label><label class="dt-adjust">saturation<input id="dtSaturation" type="range" min="0" max="200" value="100"></label><button id="dtReset">reset</button><div>Preview only; originals stay unchanged.</div></div></details></aside></div><footer class="dt-footer"><span id="dtStatus">add photographs to get started</span><span>double-click to open · ← → browse</span></footer>`;
+
+const navigator=document.createElement('div');navigator.className='dt-navigator';navigator.innerHTML='<div class="dt-nav-frame"><img id="dtNavigatorImage" alt=""></div><div class="dt-nav-zoom"><button id="dtNavFit">fit ▾</button></div>';
+win.querySelector('.dt-left').prepend(navigator);
+const right=win.querySelector('.dt-right');
+const scope=document.createElement('div');scope.className='dt-scope';scope.innerHTML='<div class="dt-color-wheel" aria-label="Color reference wheel"><span></span></div><div class="dt-module-icons" aria-hidden="true">☷　◯　◉　◐　≋</div><input id="dtModuleSearch" type="search" placeholder="search modules by name…" aria-label="Search preview modules">';right.prepend(scope);
+const adjustment=right.querySelector('details:last-child');adjustment.remove();
+const module=(name,body)=>{const d=document.createElement('details');d.className='dt-edit-module';d.open=true;d.innerHTML='<summary>'+name+'</summary><div class="dt-panel">'+body+'</div>';right.append(d);return d};
+module('exposure','<label class="dt-adjust">brightness <output id="dtBrightnessValue">100%</output><input id="dtBrightness" type="range" min="25" max="200" value="100"></label>');
+module('contrast','<label class="dt-adjust">contrast <output id="dtContrastValue">100%</output><input id="dtContrast" type="range" min="25" max="200" value="100"></label>');
+module('color balance rgb','<label class="dt-adjust">global saturation <output id="dtSaturationValue">100%</output><input id="dtSaturation" type="range" min="0" max="200" value="100"></label>');
+module('preview settings','<button id="dtReset">reset adjustments</button><div class="dt-preview-note">Browser preview adjustments. Original photographs are unchanged.</div>');
+const info=win.querySelector('.dt-left details:last-child');info.open=false;
+q('dtNavFit').onclick=()=>q('dtViewer').classList.remove('actual');
+q('dtModuleSearch').oninput=e=>right.querySelectorAll('.dt-edit-module').forEach(d=>d.hidden=!d.querySelector('summary').textContent.toLowerCase().includes(e.target.value.toLowerCase()));
+const photos=[];let selected=null,mode='lighttable';
+function visible(){let list=photos.filter(p=>p.rating>=+q('dtRating').value&&(!q('dtColorFilter').value||p.color===q('dtColorFilter').value)&&((p.name+' '+(p.tags||'')).toLowerCase().includes(q('dtSearch').value.toLowerCase()))).slice().sort(q('dtSort').value==='filename'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>a.id-b.id);return reverseSort?list.reverse():list}
+function select(p){selected=p;ensure(p);q('dtName').textContent=p.name;q('dtType').textContent=p.type;q('dtDimensions').textContent=p.dimensions||'loading…';q('dtSelected').textContent=p.name;q('dtImage').src=p.src;q('dtImage').alt=p.name;q('dtNavigatorImage').src=p.src;q('dtNavigatorImage').alt=p.name;q('dtStars').value=p.rating;['Brightness','Contrast','Saturation'].forEach((k,i)=>q('dt'+k).value=p.adjust[i]);apply();q('dtStatus').textContent=p.name;win.querySelectorAll('[data-dt-photo]').forEach(b=>b.classList.toggle('selected',Number(b.dataset.dtPhoto)===p.id));syncExtra()}
+function apply(){['Brightness','Contrast','Saturation'].forEach(k=>q('dt'+k+'Value').textContent=q('dt'+k).value+'%');if(!selected)return;selected.adjust=['Brightness','Contrast','Saturation'].map(k=>+q('dt'+k).value);q('dtImage').style.filter=`brightness(${selected.adjust[0]}%) contrast(${selected.adjust[1]}%) saturate(${selected.adjust[2]}%)`;queueDraw()}
+function switchMode(next){if(next==='darkroom'&&!selected){const p=visible()[0];if(p)select(p);else{q('dtStatus').textContent='add a photograph before opening darkroom';return}}mode=next;render()}
+function render(){const list=visible(),dark=mode==='darkroom';win.dataset.dtMode=mode;syncSidebars(dark);q('dtLight').setAttribute('aria-selected',!dark);q('dtDark').setAttribute('aria-selected',dark);q('galleryFiles').hidden=dark;q('dtViewer').hidden=!dark;q('dtFilm').hidden=!dark;q('dtTotal').textContent='('+photos.length+')';q('dtCount').textContent=list.length+' images';q('dtStatus').textContent=selected?selected.name:'add photographs to get started';q('galleryFiles').replaceChildren();q('dtFilm').replaceChildren();if(!list.length){const empty=document.createElement('div');empty.className='dt-empty';empty.textContent=photos.length?'No images match this rating.':'Add photos to Gallery/ or use “add to library…”';q('galleryFiles').append(empty)}list.forEach(p=>{for(const film of [false,true]){const b=document.createElement('button');b.className=(film?'':'dt-photo ')+(p===selected?'selected':'');b.title=p.name;b.dataset.dtPhoto=p.id;if(p.color)b.style.borderBottomColor=p.color;const img=document.createElement('img');img.src=p.src;img.alt=p.name;b.append(img);if(!film){const label=document.createElement('span');label.textContent=p.name;b.append(label)}b.onclick=()=>select(p);b.ondblclick=()=>{select(p);switchMode('darkroom')};q(film?'dtFilm':'galleryFiles').append(b)}})}
+q('dtImport').onclick=()=>q('dtInput').click();q('dtInput').onchange=e=>{let rejected=0;for(const f of e.target.files){if(!f.type.startsWith('image/')){rejected++;continue}const p={id:++nextPhotoId,name:f.name,type:f.type,src:URL.createObjectURL(f),rating:0,adjust:[100,100,100]};photos.push(p);const img=new Image();img.onload=()=>{p.dimensions=img.naturalWidth+' × '+img.naturalHeight;if(selected===p)q('dtDimensions').textContent=p.dimensions};img.onerror=()=>{p.dimensions='unsupported image';if(selected===p)q('dtDimensions').textContent=p.dimensions};img.src=p.src}if(!selected&&photos.length)select(photos[0]);render();if(rejected)q('dtStatus').textContent='Some files were skipped because they are not images.';e.target.value=''};
+q('dtLight').onclick=()=>switchMode('lighttable');q('dtDark').onclick=q('dtOpen').onclick=()=>switchMode('darkroom');q('dtAll').onclick=()=>{q('dtRating').value=0;switchMode('lighttable')};q('dtRating').onchange=q('dtSort').onchange=render;q('dtStars').onchange=()=>{if(selected){selected.rating=+q('dtStars').value;render()}};q('dtSize').oninput=e=>q('galleryFiles').style.setProperty('--dt-size',e.target.value+'px');q('dtFit').onclick=()=>q('dtViewer').classList.remove('actual');q('dtActual').onclick=()=>q('dtViewer').classList.add('actual');['Brightness','Contrast','Saturation'].forEach(k=>q('dt'+k).oninput=apply);q('dtReset').onclick=()=>{['Brightness','Contrast','Saturation'].forEach(k=>q('dt'+k).value=100);apply()};win.addEventListener('keydown',e=>{if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||!['ArrowLeft','ArrowRight'].includes(e.key))return;const list=visible();if(!list.length)return;e.preventDefault();const i=list.indexOf(selected);select(list[(i+(e.key==='ArrowRight'?1:-1)+list.length)%list.length])});
+const defaults={exposure:0,black:0,detail:0,skew:0,vibrance:0,chroma:0,brilliance:0,hue:0,warmth:0,tint:0,shadows:0,highlights:0,gray:0,rotate:0,flip:1};
+const extraGroups=[['local contrast',[['detail','detail',0,150,1]]],['sigmoid · preview',[['skew','skew',-100,100,1]]],['color balance rgb · preview',[['vibrance','global vibrance',-100,100,1],['chroma','global chroma',-100,100,1],['brilliance','global brilliance',-100,100,1]]],['color equalizer · preview',[['hue','hue shift',-180,180,1]]],['color calibration · preview',[['warmth','temperature',-100,100,1],['tint','tint',-100,100,1]]],['tone controls',[['exposure','exposure (EV)',-3,3,.1],['black','black level',-50,50,1],['shadows','shadows',-100,100,1],['highlights','highlights',-100,100,1],['gray','monochrome',0,100,1]]]];
+for(const [title,sliders] of extraGroups){const panel=module(title,sliders.map(([key,label,min,max,step])=>`<label class="dt-adjust">${label}<output id="dtXValue-${key}">0</output><input data-dt-extra="${key}" type="range" min="${min}" max="${max}" step="${step}" value="0"></label>`).join(''));panel.open=['local contrast','sigmoid · preview','color balance rgb · preview'].includes(title)}
+function panel(parent,title,body,cls='dt-shared'){const d=document.createElement('details');d.className=cls;d.innerHTML='<summary>'+title+'</summary><div class="dt-panel">'+body+'</div>';parent.append(d);return d}
+const left=win.querySelector('.dt-left');
+panel(left,'snapshots','<button id="dtSnapshot">take snapshot</button><button id="dtRestoreSnapshot">restore snapshot</button><div id="dtSnapshotStatus">no snapshot</div>','dt-dark-extra');
+panel(left,'history','<button id="dtUndo">undo</button> <button id="dtRedo">redo</button><ol id="dtHistory"></ol>','dt-dark-extra');
+panel(left,'duplicate manager','<button id="dtDuplicate">duplicate image</button>','dt-dark-extra');
+panel(left,'color picker','<button id="dtPicker">pick from image</button><div id="dtPicked">click the button, then the photo</div>','dt-dark-extra');
+panel(right,'actions on selection','<button id="dtRotateLeft">↶ rotate left</button> <button id="dtRotateRight">↷ rotate right</button><button id="dtFlip">flip horizontal</button><button id="dtDuplicateRight">duplicate</button><button id="dtRemove">remove from session</button>').open=true;
+panel(right,'history stack','<button id="dtCopy">copy adjustments</button><button id="dtPaste">paste adjustments</button>');
+panel(right,'styles','<select id="dtStyle" aria-label="Style"><option value="original">original</option><option value="mono">monochrome</option><option value="warm">warm</option><option value="soft">soft</option><option value="vivid">vivid</option></select><button id="dtApplyStyle">apply style</button>');
+panel(right,'metadata editor','<label>title<input id="dtMetaTitle" type="text"></label><label>description<textarea id="dtMetaDescription" rows="2"></textarea></label><button id="dtSaveMeta">save for this session</button>');
+panel(right,'tagging','<label>tags (comma separated)<input id="dtTags" type="text"></label><button id="dtSaveTags">apply tags</button>');
+panel(right,'export',`<div class="dt-section">storage options</div><div>target storage <b>file on disk</b></div><div class="dt-section">format options</div><label>file format<select id="dtExportType"><option value="image/jpeg">JPEG (8-bit)</option><option value="image/png">PNG (8-bit)</option></select></label><label class="dt-adjust">quality<output id="dtQualityValue">95</output><input id="dtQuality" type="range" min="1" max="100" value="95"></label><div class="dt-section">global options</div><label>maximum width<input id="dtExportWidth" type="number" min="0" max="12000" value="0"></label><label>maximum height<input id="dtExportHeight" type="number" min="0" max="12000" value="0"></label><div>0 = original size; proportions preserved</div><label><input id="dtUpscale" type="checkbox"> allow upscaling</label><button id="dtExport">start export</button><button id="dtExportMeta">download metadata JSON</button><div>Preview edits are included. Metadata is a separate JSON file.</div>`).open=true;
+const filters=win.querySelector('.dt-left details:nth-of-type(3) .dt-panel');
+filters.insertAdjacentHTML('beforeend','<label>color label<select id="dtColorFilter"><option value="">all colors</option><option>red</option><option>yellow</option><option>green</option><option>blue</option><option>purple</option></select></label><label>search filename / tags<input id="dtSearch" type="search"></label><button id="dtClearFilters">reset filters</button>');
+const toolsbar=win.querySelector('.dt-tools');
+const colors=document.createElement('div');colors.className='dt-label-buttons';colors.innerHTML=['red','yellow','green','blue','purple'].map(c=>`<button data-dt-label="${c}" title="Label selected image ${c}" aria-label="Label selected image ${c}" style="--label:${c}"></button>`).join('')+'<button id="dtClearLabel" title="Clear color label">×</button>';toolsbar.prepend(colors);
+const reverse=document.createElement('button');reverse.id='dtReverse';reverse.textContent='⇅';reverse.title='Reverse sort order';toolsbar.append(reverse);
+const canvas=document.createElement('canvas');canvas.id='dtProcessed';canvas.hidden=true;canvas.setAttribute('aria-label','Edited photograph');q('dtViewer').append(canvas);
+let reverseSort=false,copied=null,picking=false,drawTicket=0,nextPhotoId=photos.length;
+async function loadGalleryFolder(){
+ const base=new URL('Gallery/',document.baseURI),candidates=[];
+ const add=path=>{try{const raw=String(path).trim().replace(/^\.\//,''),clean=raw.replace(/^\/?Gallery\//i,''),url=new URL(clean,base),name=decodeURIComponent(url.pathname.split('/').pop());if(url.origin!==base.origin||!url.pathname.startsWith(base.pathname)||url.pathname.endsWith('/')||candidates.some(p=>p.src===url.href))return;const extension=name.includes('.')?name.split('.').pop().toLowerCase():'';candidates.push({name,src:url.href,type:extension?`image/${extension==='jpg'?'jpeg':extension}`:'image/unknown'})}catch(error){console.info('Skipping invalid Gallery path:',path,error)}};
+ try{const response=await fetch(new URL('photos.json',base),{cache:'no-store'});if(response.ok&&(response.headers.get('content-type')||'').includes('json')){const data=await response.json();for(const entry of Array.isArray(data)?data:data.photos||[])add(typeof entry==='string'?entry:entry?.file)}}catch(error){console.info('No Gallery manifest:',error)}
+ if(!candidates.length){try{const response=await fetch(base,{cache:'no-store'});if(response.ok&&(response.headers.get('content-type')||'').includes('html')){const doc=new DOMParser().parseFromString(await response.text(),'text/html');for(const link of doc.querySelectorAll('a[href]'))add(link.getAttribute('href'))}}catch(error){console.info('No Gallery directory index:',error)}}
+ const pending=candidates.filter(candidate=>!photos.some(photo=>photo.src===candidate.src)).map(candidate=>new Promise(resolve=>{const image=new Image();image.onload=()=>{const photo={...candidate,id:++nextPhotoId,rating:0,adjust:[100,100,100],dimensions:image.naturalWidth+' × '+image.naturalHeight};photos.push(photo);resolve(true)};image.onerror=()=>resolve(false);image.src=candidate.src}));
+ const loaded=(await Promise.all(pending)).filter(Boolean).length;
+ if(photos.length){if(!selected)select(photos[0]);render();q('dtStatus').textContent=loaded?`${loaded} photograph${loaded===1?'':'s'} loaded from Gallery/`:`${photos.length} photograph${photos.length===1?'':'s'} in Gallery/`}
+ else{q('dtStatus').textContent='No photos found. Enable directory listings for Gallery/ on the server.'}
+}
+function state(p){return JSON.parse(JSON.stringify({adjust:p.adjust,extra:p.extra||defaults}))}
+function ensure(p){p.extra={...defaults,...p.extra};p.history??=[state(p)];p.historyIndex??=0;p.tags??='';p.color??=''}
+function changed(){if(!selected)return;ensure(selected);const entry=state(selected);if(JSON.stringify(entry)===JSON.stringify(selected.history[selected.historyIndex]))return;selected.history.splice(selected.historyIndex+1);selected.history.push(entry);if(selected.history.length>40)selected.history.shift();selected.historyIndex=selected.history.length-1;refreshHistory()}
+function refreshHistory(){q('dtHistory').replaceChildren();if(!selected)return;selected.history.forEach((entry,i)=>{const li=document.createElement('li');li.textContent=(i===selected.historyIndex?'● ':'')+(i?'adjustments '+i:'original');q('dtHistory').append(li)});q('dtUndo').disabled=selected.historyIndex<=0;q('dtRedo').disabled=selected.historyIndex>=selected.history.length-1;q('dtSnapshotStatus').textContent=selected.snapshot?'snapshot saved':'no snapshot'}
+function syncExtra(){if(!selected)return;ensure(selected);win.querySelectorAll('[data-dt-extra]').forEach(input=>{input.value=selected.extra[input.dataset.dtExtra];q('dtXValue-'+input.dataset.dtExtra).textContent=input.value});q('dtMetaTitle').value=selected.title||selected.name;q('dtMetaDescription').value=selected.description||'';q('dtTags').value=selected.tags;refreshHistory();queueDraw()}
+function restore(s){selected.adjust=s.adjust.slice();selected.extra={...defaults,...s.extra};['Brightness','Contrast','Saturation'].forEach((k,i)=>q('dt'+k).value=selected.adjust[i]);apply();syncExtra()}
+function queueDraw(){q('dtCompare')?.setAttribute('aria-pressed','false');const ticket=++drawTicket;if(!selected)return;const p=selected;const image=new Image();image.onload=()=>{if(ticket!==drawTicket||p!==selected)return;const ratio=Math.min(1,1600/Math.max(image.naturalWidth,image.naturalHeight));processImage(image,canvas,p,ratio);q('dtImage').hidden=true;canvas.hidden=false};image.onerror=()=>{if(ticket===drawTicket){canvas.hidden=true;q('dtImage').hidden=false;q('dtStatus').textContent='This image could not be decoded.'}};image.src=p.src}
+function processImage(image,out,p,ratio){const e={...defaults,...p.extra},w=Math.max(1,Math.round(image.naturalWidth*ratio)),h=Math.max(1,Math.round(image.naturalHeight*ratio));const work=document.createElement('canvas');work.width=w;work.height=h;const ctx=work.getContext('2d',{willReadFrequently:true});ctx.drawImage(image,0,0,w,h);const pixels=ctx.getImageData(0,0,w,h),data=pixels.data;const contrast=p.adjust[1]/100,brightness=p.adjust[0]/100*Math.pow(2,e.exposure)*(1+e.brilliance/200),saturation=p.adjust[2]/100*(1+e.chroma/100),angle=e.hue*Math.PI/180,c=Math.cos(angle),sn=Math.sin(angle);
+for(let i=0;i<data.length;i+=4){let r=data[i]/255,g=data[i+1]/255,b=data[i+2]/255;const lum=.2126*r+.7152*g+.0722*b;const tone=e.shadows/200*Math.pow(1-lum,2)+e.highlights/200*lum*lum-e.black/200;const sat=saturation*(1+e.vibrance/100*(1-(Math.max(r,g,b)-Math.min(r,g,b))));r=lum+(r-lum)*sat;g=lum+(g-lum)*sat;b=lum+(b-lum)*sat;r+=e.warmth/600+e.tint/1200;b-=e.warmth/600;g-=e.tint/600;let rr=(.213+.787*c-.213*sn)*r+(.715-.715*c-.715*sn)*g+(.072-.072*c+.928*sn)*b;let gg=(.213-.213*c+.143*sn)*r+(.715+.285*c+.140*sn)*g+(.072-.072*c-.283*sn)*b;let bb=(.213-.213*c-.787*sn)*r+(.715-.715*c+.715*sn)*g+(.072+.928*c+.072*sn)*b;const gray=.2126*rr+.7152*gg+.0722*bb;[rr,gg,bb].forEach((v,k)=>{v+=(gray-v)*e.gray/100;v=((v+tone)*brightness-.5)*contrast+.5;v=Math.pow(Math.max(0,v),Math.pow(2,-e.skew/100));data[i+k]=Math.max(0,Math.min(255,v*255))})}
+if(e.detail){const src=new Uint8ClampedArray(data),amount=e.detail/100;for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=(y*w+x)*4;for(let k=0;k<3;k++){const avg=(src[i-4+k]+src[i+4+k]+src[i-w*4+k]+src[i+w*4+k])/4;data[i+k]=src[i+k]+amount*(src[i+k]-avg)}}}ctx.putImageData(pixels,0,0);const turn=((e.rotate%360)+360)%360;out.width=turn%180?h:w;out.height=turn%180?w:h;const dest=out.getContext('2d');dest.translate(out.width/2,out.height/2);dest.rotate(turn*Math.PI/180);dest.scale(e.flip,1);dest.drawImage(work,-w/2,-h/2);dest.setTransform(1,0,0,1,0,0)}
+win.querySelectorAll('[data-dt-extra]').forEach(input=>{input.oninput=()=>{q('dtXValue-'+input.dataset.dtExtra).textContent=input.value;if(!selected)return;ensure(selected);selected.extra[input.dataset.dtExtra]=+input.value;queueDraw()};input.onchange=changed});
+['Brightness','Contrast','Saturation'].forEach(k=>q('dt'+k).addEventListener('change',changed));
+q('dtReset').onclick=()=>{if(!selected)return;restore({adjust:[100,100,100],extra:defaults});changed()};
+q('dtUndo').onclick=()=>{if(selected&&selected.historyIndex>0)restore(selected.history[--selected.historyIndex])};q('dtRedo').onclick=()=>{if(selected&&selected.historyIndex<selected.history.length-1)restore(selected.history[++selected.historyIndex])};
+q('dtSnapshot').onclick=()=>{if(selected){selected.snapshot=state(selected);refreshHistory()}};q('dtRestoreSnapshot').onclick=()=>{if(selected?.snapshot){restore(selected.snapshot);changed()}};
+function transform(key,value){if(!selected)return;selected.extra[key]=value;queueDraw();changed()}
+q('dtRotateLeft').onclick=()=>selected&&transform('rotate',selected.extra.rotate-90);q('dtRotateRight').onclick=()=>selected&&transform('rotate',selected.extra.rotate+90);q('dtFlip').onclick=()=>selected&&transform('flip',-selected.extra.flip);
+q('dtCopy').onclick=()=>{if(selected){copied=state(selected);q('dtStatus').textContent='Adjustments copied'}};q('dtPaste').onclick=()=>{if(selected&&copied){restore(copied);changed()}};
+q('dtDuplicate').onclick=q('dtDuplicateRight').onclick=()=>{if(!selected)return;const p={...selected,id:++nextPhotoId,name:selected.name+' (copy)',adjust:selected.adjust.slice(),extra:{...selected.extra},history:undefined,historyIndex:undefined,snapshot:undefined};photos.push(p);select(p);render()};
+q('dtRemove').onclick=()=>{if(!selected)return;photos.splice(photos.indexOf(selected),1);selected=null;if(photos.length)select(photos[0]);else{mode='lighttable';drawTicket++;canvas.hidden=true;q('dtImage').hidden=false;['dtImage','dtNavigatorImage'].forEach(id=>q(id).removeAttribute('src'));['dtName','dtType','dtDimensions','dtSelected'].forEach(id=>q(id).textContent='—')}render()};
+q('dtApplyStyle').onclick=()=>{if(!selected)return;const e={...defaults},a=[100,100,100];switch(q('dtStyle').value){case'mono':e.gray=100;a[1]=115;break;case'warm':e.warmth=35;break;case'soft':a[1]=85;e.shadows=15;break;case'vivid':e.vibrance=40;a[1]=115}restore({adjust:a,extra:e});changed()};
+q('dtSaveMeta').onclick=()=>{if(selected){selected.title=q('dtMetaTitle').value;selected.description=q('dtMetaDescription').value;q('dtStatus').textContent='Metadata saved for this session'}};q('dtSaveTags').onclick=()=>{if(selected){selected.tags=q('dtTags').value;render()}};
+win.querySelectorAll('[data-dt-label]').forEach(b=>b.onclick=()=>{if(selected){selected.color=b.dataset.dtLabel;render()}});q('dtClearLabel').onclick=()=>{if(selected){selected.color='';render()}};q('dtColorFilter').onchange=q('dtSearch').oninput=render;q('dtReverse').onclick=()=>{reverseSort=!reverseSort;render()};q('dtClearFilters').onclick=()=>{q('dtSearch').value='';q('dtColorFilter').value='';q('dtRating').value='0';render()};
+q('dtQuality').oninput=()=>q('dtQualityValue').textContent=q('dtQuality').value;q('dtExportType').onchange=()=>q('dtQuality').disabled=q('dtExportType').value==='image/png';
+function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000)}
+q('dtExportMeta').onclick=()=>{if(selected)download(new Blob([JSON.stringify({filename:selected.name,title:selected.title||'',description:selected.description||'',tags:selected.tags,rating:selected.rating,color:selected.color,adjustments:state(selected)},null,2)],{type:'application/json'}),selected.name+'.json')};
+q('dtExport').onclick=async()=>{if(!selected){q('dtStatus').textContent='Select an image to export';return}const p=selected,img=new Image();img.src=p.src;try{await img.decode();let mw=Math.max(0,Math.min(12000,+q('dtExportWidth').value||0)),mh=Math.max(0,Math.min(12000,+q('dtExportHeight').value||0));const rotated=Math.abs(p.extra.rotate%180)===90,w=rotated?img.naturalHeight:img.naturalWidth,h=rotated?img.naturalWidth:img.naturalHeight;let ratio=Math.min(mw?mw/w:Infinity,mh?mh/h:Infinity);if(!Number.isFinite(ratio))ratio=1;if(!q('dtUpscale').checked)ratio=Math.min(1,ratio);const out=document.createElement('canvas');processImage(img,out,p,ratio);const type=q('dtExportType').value;out.toBlob(blob=>{if(blob){download(blob,p.name.replace(/\.[^.]+$/,'')+'-edited.'+(type==='image/png'?'png':'jpg'));q('dtStatus').textContent='Export ready'}else q('dtStatus').textContent='Export failed'},type,+q('dtQuality').value/100)}catch(e){q('dtStatus').textContent='Could not export this image: '+e.message}};
+q('dtPicker').onclick=()=>{picking=true;q('dtPicked').textContent='Click the photograph';switchMode('darkroom')};canvas.onclick=e=>{if(!picking)return;const box=canvas.getBoundingClientRect(),scale=Math.min(box.width/canvas.width,box.height/canvas.height),ox=(box.width-canvas.width*scale)/2,oy=(box.height-canvas.height*scale)/2,x=Math.floor((e.clientX-box.left-ox)/scale),y=Math.floor((e.clientY-box.top-oy)/scale);if(x<0||y<0||x>=canvas.width||y>=canvas.height)return;const rgb=canvas.getContext('2d').getImageData(x,y,1,1).data;q('dtPicked').textContent='#'+Array.from(rgb).slice(0,3).map(v=>v.toString(16).padStart(2,'0')).join('');picking=false};
+
+const moduleButtons=win.querySelector('.dt-module-icons');moduleButtons.removeAttribute('aria-hidden');moduleButtons.innerHTML='<button id="dtExpandModules" title="Expand modules">＋</button> <button id="dtCollapseModules" title="Collapse modules">−</button> <button id="dtCompare" aria-pressed="false">original</button>';
+q('dtExpandModules').onclick=()=>right.querySelectorAll('details').forEach(d=>d.open=true);q('dtCollapseModules').onclick=()=>right.querySelectorAll('details').forEach(d=>d.open=false);
+q('dtCompare').onclick=()=>{if(!selected)return;const original=q('dtCompare').getAttribute('aria-pressed')!=='true';q('dtCompare').setAttribute('aria-pressed',original);canvas.hidden=original;q('dtImage').hidden=!original;q('dtImage').style.filter=original?'none':q('dtImage').style.filter;if(!original)queueDraw()};
+const sidebarPanels=Array.from(right.children).filter(el=>el.tagName==='DETAILS');
+const findPanel=title=>sidebarPanels.find(el=>el.querySelector('summary')?.textContent===title);
+const selectionPanel=findPanel('selection'),ratingPanel=findPanel('image rating'),viewPanel=findPanel('view');
+if(ratingPanel){selectionPanel.querySelector('.dt-panel').append(...ratingPanel.querySelector('.dt-panel').children);ratingPanel.remove()}
+const geoPanel=panel(right,'geotagging','<p>No location data available. GPS editing is not implemented in this browser gallery.</p>','dt-light-panel');
+const neuralPanel=panel(right,'neural restore','<p>Neural restoration is unavailable in this browser gallery.</p>','dt-light-panel');
+const lightPanels=['selection','actions on selection','history stack','styles','metadata editor','tagging','geotagging','neural restore','export'].map(title=>title==='geotagging'?geoPanel:title==='neural restore'?neuralPanel:findPanel(title)).filter(Boolean);
+lightPanels.forEach(el=>{el.classList.add('dt-light-panel');el.open=el.querySelector('summary').textContent==='export';right.append(el)});
+const darkUtilities=[viewPanel,findPanel('tagging'),findPanel('export')].filter(Boolean);
+const editingPanels=Array.from(right.querySelectorAll('.dt-edit-module'));
+let sidebarMode=null;
+function syncSidebars(dark){
+ scope.hidden=!dark;scope.style.setProperty('display',dark?'block':'none','important');
+ editingPanels.forEach(el=>{const matches=!q('dtModuleSearch').value||el.querySelector('summary').textContent.toLowerCase().includes(q('dtModuleSearch').value.toLowerCase());el.hidden=!dark||!matches;el.style.setProperty('display',dark&&matches?'block':'none','important')});
+ lightPanels.forEach(el=>{el.hidden=dark;el.style.setProperty('display',dark?'none':'block','important')});
+ darkUtilities.forEach(el=>{const target=dark?left:right;if(el.parentElement!==target)target.append(el);el.hidden=!dark&&el===viewPanel;el.style.setProperty('display',el.hidden?'none':'block','important')});
+ if(!dark&&sidebarMode!==dark)lightPanels.forEach(el=>right.append(el));
+ sidebarMode=dark;
+ left.querySelectorAll(':scope > details').forEach(el=>{const utility=darkUtilities.includes(el),isDark=el.classList.contains('dt-dark-extra'),isInfo=el===info;const show=dark?(utility||isDark||isInfo):!isDark;el.hidden=!show;el.style.setProperty('display',show?'block':'none','important')});
+ right.setAttribute('aria-label',dark?'Darkroom image adjustments':'Lighttable library tools');
+}
+q('dtModuleSearch').oninput=()=>syncSidebars(mode==='darkroom');
+q('dtExpandModules').onclick=()=>editingPanels.forEach(el=>el.open=true);
+q('dtCollapseModules').onclick=()=>editingPanels.forEach(el=>el.open=false);
+render();
+loadGalleryFolder();
+})();
+</script>
+
+
+
+<script>
+(()=>{
+ const windows=Array.from(document.querySelectorAll('#desktop .window'));
+ const tasks=document.createElement('div');tasks.id='retroTasks';tasks.setAttribute('aria-label','Open windows');document.getElementById('taskbar').append(tasks);
+ let active=null;
+ function syncTasks(){
+  for(const win of windows){
+   let task=tasks.querySelector('[data-window="'+win.id+'"]');
+   if(!win.classList.contains('open')){task?.remove();continue}
+   if(!task){task=document.createElement('button');task.type='button';task.dataset.window=win.id;task.onclick=()=>{if(active===win&&!win.classList.contains('retro-minimized'))minimize(win);else restore(win)};tasks.append(task)}
+   const title=win.querySelector('.windowTitle')?.textContent.trim()||win.id;task.textContent=title;task.title=title;task.setAttribute('aria-pressed',String(active===win&&!win.classList.contains('retro-minimized')));
+   win.dataset.retroActive=String(active===win);
+  }
+ }
+ function focus(win){active=win;win.style.zIndex=++z;syncTasks()}
+ function stopMotion(win){if(typeof clearWindowMotion==='function')clearWindowMotion(win);if(typeof dragWin!=='undefined'&&dragWin===win&&typeof finishWindowDrag==='function')finishWindowDrag()}
+ function minimize(win){stopMotion(win);win.classList.add('retro-minimized');if(active===win)active=null;syncTasks()}
+ function restore(win){win.classList.remove('retro-minimized');win.classList.add('open');focus(win)}
+ function maximize(win){stopMotion(win);const max=win.classList.toggle('retro-maximized');const button=win.querySelector('[data-window-action="maximize"]');button.textContent=max?'❐':'□';button.title=max?'Restore size':'Maximize';button.setAttribute('aria-label',button.title);button.setAttribute('aria-pressed',String(max));focus(win)}
+ for(const win of windows){
+  const bar=win.querySelector('.titlebar'),oldClose=bar.querySelector('.windowButton');const controls=document.createElement('div');controls.className='retroWindowControls';
+  for(const [action,label,glyph] of [['minimize','Minimize','_'],['maximize','Maximize','□'],['close','Close','×']]){const b=document.createElement('button');b.type='button';b.className='retroControl';b.dataset.windowAction=action;b.title=label;b.setAttribute('aria-label',label);b.textContent=glyph;if(action==='maximize')b.setAttribute('aria-pressed','false');b.onclick=()=>{if(action==='minimize')minimize(win);else if(action==='maximize')maximize(win);else{stopMotion(win);closeWindow(win);win.classList.remove('retro-minimized');if(active===win)active=null;syncTasks()}};controls.append(b)}
+  oldClose?.remove();bar.append(controls);
+  bar.addEventListener('dblclick',e=>{if(!e.target.closest('button'))maximize(win)});
+  win.addEventListener('pointerdown',()=>focus(win));
+ }
+ const originalOpenWindow=openWindow;
+ openWindow=function(id){const win=document.getElementById(id);if(win)win.classList.remove('retro-minimized');originalOpenWindow(id);if(win)focus(win)};
+ const observer=new MutationObserver(syncTasks);windows.forEach(win=>{observer.observe(win,{attributes:true,attributeFilter:['class']});const title=win.querySelector('.windowTitle');if(title)observer.observe(title,{childList:true,subtree:true,characterData:true})});
+ syncTasks();
+})();
+</script>
+
+
+
+
+</body>
+</html>
