@@ -312,7 +312,7 @@ body {
     background: linear-gradient(180deg,#77538b 0%,#563c68 48%,#392847 100%); color: white;
     border-bottom: 1px solid #241b2b; text-shadow: 0 1px 2px rgba(0,0,0,.7);
     box-shadow: inset 0 1px rgba(255,255,255,.22); display: flex; align-items: center;
-    padding-left: 10px; font: 12px Arial,sans-serif; cursor: move;
+    padding-left: 10px; font: 16px Arial,sans-serif; cursor: move;
 }
 
 .windowTitle {
@@ -455,7 +455,7 @@ body {
 }
 
 .foobarProperties {
-    font-size: 11px;
+    font-size: 16px;
 }
 
 .propertySection {
@@ -591,7 +591,7 @@ body {
 #playerWindow .musicPlayer {
     height: calc(100% - 31px); padding: 0; display: grid; grid-template-columns: 1fr auto;
     grid-template-rows: 30px minmax(0, 1fr) 22px; gap: 0; overflow: hidden; background: #fff;
-    font: 11px Tahoma, Arial, sans-serif; color: #111;
+    font: 16px Tahoma, Arial, sans-serif; color: #111;
 }
 
 #playerWindow .foobarMenu {
@@ -653,7 +653,7 @@ body {
 }
 
 #playerWindow .fbSidebarTabs button {
-    font: 14px Tahoma, Arial; border: 1px solid #aaa; background: #f4f4f4; border-radius: 0;
+    font: 16px Tahoma, Arial; border: 1px solid #aaa; background: #f4f4f4; border-radius: 0;
     padding: 2px 6px; cursor: pointer;
 }
 
@@ -693,7 +693,7 @@ body {
 }
 
 #playerWindow .propertySection {
-    color: #258ae5; padding: 5px 4px 3px; font-size: 12px; font-weight: normal;
+    color: #258ae5; padding: 5px 4px 3px; font-size: 18px; font-weight: normal;
 }
 
 #playerWindow .foobarArtwork {
@@ -722,7 +722,7 @@ body {
 
 #playerWindow select {
     flex: 1; min-width: 0; border: 1px solid #aaa; border-radius: 0; background: white;
-    font: 11px Tahoma, Arial; color: #111;
+    font: 16px Tahoma, Arial; color: #111;
 }
 
 #playerWindow .foobarColumns,
@@ -956,7 +956,7 @@ body {
 }
 
 .projectTag {
-    display: inline-block; padding: 4px 8px; background: #333; border-radius: 3px; font-size: 11px;
+    display: inline-block; padding: 4px 8px; background: #333; border-radius: 3px; font-size: 14px;
     margin: 0 5px 5px 0;
 }
 
@@ -1620,7 +1620,7 @@ body {
 
 #desktop .window>.titlebar {
     box-sizing: border-box; display: flex; align-items: center; padding: 3px 4px; border-radius: 0;
-    font: bold 16px Tahoma,"DejaVu Sans",sans-serif; overflow: hidden;
+    font: bold 18px Tahoma,"DejaVu Sans",sans-serif; overflow: hidden;
 }
 
 #desktop .windowTitle {
@@ -1669,7 +1669,7 @@ body {
 
 #desktop .about h1,
 #desktop .projectView h1 {
-    font-size: 22px;
+    font-size: 36px;
 }
 
 #desktop .about h2,
@@ -1685,7 +1685,7 @@ body {
 
 #startMenu,
 #windowEffectsMenu {
-    font: 12px Tahoma,"DejaVu Sans",sans-serif;
+    font: 16px Tahoma,"DejaVu Sans",sans-serif;
 }
 
 #startMenu .menuItem {
@@ -1905,7 +1905,7 @@ body,
 /* Readable app content */
 
 #desktop .fileToolbar {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 #desktop .file,
@@ -1913,16 +1913,16 @@ body,
 #desktop .projectView,
 #desktop .terminal,
 #desktop #terminalInput {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 #galleryWindow .windowContent,
 #galleryWindow .dt-right .dt-panel {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 #playerWindow .musicPlayer {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 #playerWindow .foobarColumns,
