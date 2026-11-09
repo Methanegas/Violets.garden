@@ -653,7 +653,7 @@ body {
 }
 
 #playerWindow .fbSidebarTabs button {
-    font: 16px Tahoma, Arial; border: 1px solid #aaa; background: #f4f4f4; border-radius: 0;
+    font: 18px Tahoma, Arial; border: 1px solid #aaa; background: #f4f4f4; border-radius: 0;
     padding: 2px 6px; cursor: pointer;
 }
 
@@ -961,6 +961,10 @@ body {
 
 .neofetchLabel {
     color: var(--cde-purple);
+}
+
+.neofetchRow {
+    display: grid; grid-template-columns: var(--neofetch-label-width) max-content;
 }
 
 .neofetchPalette {
@@ -1555,7 +1559,7 @@ body {
 #galleryWindow .dt-tabs button {
     font-weight: normal; display: block!important; position: static; visibility: visible;
     opacity: 1; width: auto; min-width: 82px; min-height: 32px; padding: 4px 8px; border: 0;
-    background: transparent; color: #bbb; font: 16px Arial,sans-serif; cursor: pointer;
+    background: transparent; color: #bbb; font: 20px Arial,sans-serif; cursor: pointer;
 }
 
 #galleryWindow .dt-tabs button[aria-selected="true"] {
@@ -1633,6 +1637,7 @@ body {
 
 #desktop {
     inset: 0; font-family: Tahoma,"DejaVu Sans",Arial,sans-serif; font-size: 12px;
+    --panel-height: 32px; --taskbar-height: 46px;
 }
 
 #panel,
@@ -1814,10 +1819,15 @@ body {
 }
 
 #desktop .window.retro-maximized {
-    position: fixed!important; left: 0!important; top: 32px!important; right: auto!important;
-    bottom: auto!important; width: 100vw!important; height: calc(100dvh - 66px)!important;
+    position: fixed!important; left: 0!important; top: var(--panel-height)!important; right: auto!important;
+    bottom: auto!important; width: 100vw!important;
+    height: calc(100dvh - var(--panel-height) - var(--taskbar-height))!important;
     max-width: none!important; max-height: none!important; transform: none!important;
     box-sizing: border-box;
+}
+
+#desktop .window:not(.retro-maximized) {
+    top: calc(var(--panel-height) + (100% - var(--panel-height) - var(--taskbar-height)) / 2);
 }
 
 #desktop .retro-maximized>.windowContent {
@@ -1984,4 +1994,416 @@ body,
 #playerWindow .foobarTab,
 #playerWindow .foobarStatusbar {
     font-size: 16px;
+}
+
+/* System theme colors */
+#desktop #panel,
+#desktop #taskbar {
+    background: linear-gradient(var(--theme-panel-top,#a29aaf),var(--theme-panel-bottom,#827b90));
+    color: var(--theme-panel-ink,#211b2b);
+}
+
+#desktop .window {
+    border-color: var(--theme-window-light,#c8c4d3) var(--theme-window-dark,#4b465b)
+        var(--theme-window-dark,#4b465b) var(--theme-window-light,#c8c4d3);
+}
+
+@media (max-width: 600px) {
+    #desktop #galleryWindow {
+        position: fixed!important; left: 0!important; top: var(--panel-height)!important;
+        width: 100vw!important; height: calc(100dvh - var(--panel-height) - var(--taskbar-height) - var(--window-taskbar-gap))!important;
+        max-width: none!important; max-height: none!important; transform: none!important;
+    }
+
+    #galleryWindow .dt-body,
+    #galleryWindow .dt-main {
+        height: 100%; min-height: 0;
+    }
+
+    #galleryWindow .dt-head,
+    #galleryWindow .dt-left,
+    #galleryWindow .dt-right,
+    #galleryWindow .dt-tools,
+    #galleryWindow .dt-footer,
+    #galleryWindow #dtViewer,
+    #galleryWindow .dt-film {
+        display: none!important;
+    }
+
+    #galleryWindow .dt-body {
+        display: block; padding: 0;
+    }
+
+    #galleryWindow #galleryFiles {
+        display: grid!important; height: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+        align-content: start; gap: 2px; padding: 2px; background: #454545;
+    }
+
+    #galleryWindow .dt-photo {
+        aspect-ratio: 1; padding: 0; border: 0; border-radius: 0; background: transparent;
+    }
+
+    #galleryWindow .dt-photo img {
+        width: 100%; height: 100%; object-fit: cover;
+    }
+
+    #galleryWindow .dt-photo span {
+        display: none;
+    }
+}
+
+/* Accessibility and embedded app styles moved from index.html */
+:focus-visible {
+    outline: 2px solid #ffd76a;
+    outline-offset: 3px;
+}
+
+button,
+input,
+select,
+textarea {
+    accent-color: #7b9ec8;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+    cursor: not-allowed;
+    opacity: .72;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+#fileBrowserWindow {
+    width: min(760px, 92vw);
+    height: min(560px, 78vh);
+    min-width: 320px;
+    min-height: 300px;
+}
+
+#fileBrowserWindow .fb-shell {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 2px);
+    min-height: 0;
+    background: #d7d3c9;
+    color: #222;
+    font: 13px Tahoma, Verdana, sans-serif;
+}
+
+#fileBrowserWindow .fb-toolbar { display: contents; }
+
+#fileBrowserWindow .fb-toolbar button {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 36px;
+    padding: 3px;
+    border: 1px solid;
+    border-color: #fff #777 #777 #fff;
+    border-radius: 0;
+    background: linear-gradient(#f4f2ec, #c8c4ba);
+    color: #292330;
+    cursor: pointer;
+    font: 20px Tahoma, "DejaVu Sans", sans-serif;
+    box-shadow: inset -1px -1px #aaa;
+}
+
+#fileBrowserWindow .fb-toolbar button:hover:not(:disabled) {
+    background: linear-gradient(#fff, #d8d1df);
+    border-color: #fff #634781 #634781 #fff;
+}
+
+#fileBrowserWindow .fb-toolbar button:active:not(:disabled) {
+    border-color: #777 #fff #fff #777;
+    background: #b9b4c1;
+    box-shadow: inset 1px 1px #888;
+}
+
+#fileBrowserWindow .fb-toolbar button img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+#fileBrowserWindow .fb-toolbar button:focus-visible {
+    outline: 2px solid #634781;
+    outline-offset: 1px;
+}
+
+#fileBrowserWindow .fb-pathbar button {
+    font: inherit;
+    padding: 4px 8px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    background: linear-gradient(#fff, #e6e3db);
+    color: #222;
+    cursor: pointer;
+}
+
+#fileBrowserWindow .fb-toolbar button:disabled { opacity: .45; cursor: not-allowed; }
+
+#fileBrowserWindow .fb-pathbar {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 6px 8px;
+    background: #cbc7bd;
+    border-bottom: 1px solid #aaa;
+    box-shadow: inset 0 1px #fff;
+    flex-wrap: wrap;
+}
+
+#fileBrowserWindow .fb-pathbar label { white-space: nowrap; }
+
+#fileBrowserWindow #fbPath {
+    flex: 1 1 120px;
+    min-width: 80px;
+    padding: 5px;
+    border: 1px solid #999;
+    background: #fff;
+    color: #222;
+}
+
+#fileBrowserWindow #fbSearch {
+    flex: 1 1 110px;
+    width: 140px;
+    min-width: 90px;
+    max-width: 180px;
+    padding: 5px;
+    border: 1px solid #999;
+}
+
+#fileBrowserWindow .fb-main {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    flex: 1;
+    min-height: 0;
+}
+
+#fileBrowserWindow .fb-sidebar {
+    overflow: auto;
+    padding: 7px;
+    background: #ece9e1;
+    border-right: 1px solid #aaa;
+}
+
+#fileBrowserWindow .fb-sideitem {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    min-height: 36px;
+    padding: 7px 5px;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    color: #222;
+    cursor: pointer;
+    text-align: left;
+    font: 18px Tahoma, Verdana, sans-serif;
+}
+
+#fileBrowserWindow .fb-sideitem:hover,
+#fileBrowserWindow .fb-sideitem[aria-current="page"] { background: #c9d8eb; }
+
+#fileBrowserWindow .fb-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+#fileBrowserWindow #fbItems {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 5px;
+    align-content: start;
+    overflow: auto;
+    padding: 10px;
+    flex: 1;
+}
+
+#fileBrowserWindow #fbItems.fb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#fileBrowserWindow .fb-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-height: 82px;
+    padding: 9px 5px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: transparent;
+    color: #222;
+    cursor: pointer;
+    text-align: center;
+    overflow-wrap: anywhere;
+    font: inherit;
+}
+
+#fileBrowserWindow .fb-item:hover { background: #e8e5dc; border-color: #c0bdb5; }
+
+#fileBrowserWindow .fb-item[aria-selected="true"] { background: #c8d8eb; border-color: #7297c2; }
+
+#fileBrowserWindow .fb-item .fb-glyph {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+#fileBrowserWindow .fb-item .fb-photo-thumb {
+    width: 64px;
+    height: 52px;
+    object-fit: cover;
+    border: 1px solid #999;
+}
+
+#fileBrowserWindow .fb-sideicon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex: none;
+}
+
+#fileBrowserWindow .fb-list .fb-item {
+    min-height: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 6px 8px;
+    gap: 10px;
+}
+
+#fileBrowserWindow .fb-list .fb-glyph { width: 22px; height: 22px; }
+#fileBrowserWindow .fb-list .fb-photo-thumb { width: 34px; height: 26px; }
+
+#fileBrowserWindow .fb-preview {
+    display: none;
+    max-height: 40%;
+    overflow: auto;
+    padding: 10px;
+    border-top: 1px solid #aaa;
+    background: #f8f7f3;
+}
+
+#fileBrowserWindow .fb-preview.open { display: block; }
+
+#fileBrowserWindow .fb-preview img {
+    display: block;
+    max-width: 100%;
+    max-height: 180px;
+    margin: 5px auto;
+    object-fit: contain;
+}
+
+#fileBrowserWindow .fb-preview pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    max-height: 180px;
+    overflow: auto;
+}
+
+#fileBrowserWindow .fb-preview textarea {
+    display: block;
+    width: 100%;
+    min-height: 110px;
+    margin: 6px 0;
+    padding: 7px;
+    resize: vertical;
+    border: 1px solid #888;
+    background: #fff;
+    color: #222;
+    font: inherit;
+    user-select: text;
+}
+
+#fileBrowserWindow .fb-preview-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+#fileBrowserWindow .fb-status {
+    padding: 5px 8px;
+    border-top: 1px solid #aaa;
+    background: #e7e4dc;
+    font-size: 11px;
+}
+
+@media (max-width: 520px) {
+    #fileBrowserWindow .fb-main { grid-template-columns: 105px minmax(0, 1fr); }
+    #fileBrowserWindow .fb-pathbar { gap: 4px; padding: 5px; }
+    #fileBrowserWindow .fb-toolbar button { flex-basis: 36px; width: 36px; height: 34px; }
+    #fileBrowserWindow .fb-toolbar button img { width: 22px; height: 22px; }
+    #fileBrowserWindow #fbSearch { width: 100px; }
+}
+
+#skip,
+#desktop,
+#desktop #panel,
+#desktop .fileToolbar,
+#desktop .retroControl,
+#desktop .windowButton,
+#desktop button:not(.panelItem),
+#desktop input,
+#desktop select,
+#desktop textarea,
+#playerTitle,
+#playerStatus,
+#playerWindow .playlistTrack,
+#playerWindow .foobarColumns,
+#playerWindow .fbVolume,
+.projectTag,
+.menuItem,
+#galleryWindow .dt-right>details>summary::after,
+#galleryWindow .dt-adjust output,
+#galleryWindow .dt-preview-note,
+#windowEffectsMenu small,
+#fileBrowserWindow .fb-shell,
+#fileBrowserWindow .fb-status {
+    font-size: 16px !important;
+}
+
+#galleryWindow .dt-tabs button { font-size: 20px !important; }
+
+#desktop .window>.titlebar {
+    background: var(--theme-titlebar,#695877);
+    border-color: var(--theme-title-light,#a89ab6) var(--theme-title-dark,#403548)
+        var(--theme-title-dark,#403548) var(--theme-title-light,#a89ab6);
+}
+
+#desktop .window:not(#galleryWindow):not(#playerWindow):not(#terminalWindow) .windowContent {
+    background: var(--theme-window-face,#d0cdd5);
+}
+
+#desktop .file:hover {
+    background: var(--theme-hover,#d1c4df);
+}
+
+#desktop #startMenu {
+    background: var(--theme-window-face,#b4aabd);
+    border-color: var(--theme-window-light,#d4cadd) var(--theme-window-dark,#493d58)
+        var(--theme-window-dark,#493d58) var(--theme-window-light,#d4cadd);
+}
+
+#desktop #startMenu .menuItem:hover {
+    background: var(--theme-titlebar,#655474);
+}
+
+#desktop #retroTasks button[aria-pressed="true"] {
+    background: var(--theme-titlebar,#716381);
 }
